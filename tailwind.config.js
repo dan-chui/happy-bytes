@@ -14,6 +14,10 @@ module.exports = {
         accentDark: '#FFDB4D',
         gray: '#747474',
       },
+      fontFamily: {
+        in: ['var(--font-in)'],
+        mr: ['var(--font-mr)'],
+      },
     },
   },
   plugins: [],
