@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const { withContentlayer } = import('next-contentlayer');
+const { withContentlayer } = require('next-contentlayer');
 
 const nextConfig = {};
 
