@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import profileImg from '@/public/profile-img.png';
+import logoImg from '@/public/logo.png';
 import Image from 'next/image';
 
 const Logo = () => {
@@ -8,7 +8,7 @@ const Logo = () => {
     <Link href="/" className="flex items-center text-dark">
       <div className="w-16 rounded-full overflow-hidden border border-solid border-dark mr-4">
         <Image
-          src={profileImg}
+          src={logoImg}
           alt="Dan Chui"
           className="w-full h-auto rounded-full"
         />

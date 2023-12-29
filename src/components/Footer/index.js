@@ -39,7 +39,7 @@ const Footer = () => {
         />
       </form>
 
-      <div className="fkex items-center mt-8">
+      <div className="fkex items-center mt-8 mb-4">
         <a
           href="https://www.danchui.dev/"
           className="inline-block w-6 h-6 mr-4"
