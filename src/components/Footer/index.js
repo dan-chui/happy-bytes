@@ -18,8 +18,7 @@ const Footer = () => {
         Interesting Stories | Updates | Guides
       </h3>
       <p className="mt-5 px-4 text-center w-3/5 font-light text-base">
-        Subscribe to learn about new technology and updates. © Dan Chui. All
-        rights reserved.
+        Please Subscribe to stay updated! © Dan Chui. All rights reserved.
       </p>
 
       <form
@@ -28,7 +27,7 @@ const Footer = () => {
       >
         <input
           type="email"
-          placeholder="Email address"
+          placeholder="Email Address"
           {...register('Email', { required: true, pattern: /^\S+@\S+$/i })}
           className="w-full bg-transparent pl-0 text-dark focus:border-dark focus:ring-0 border-0 border-b mr-2 pb-1"
         />
@@ -42,18 +41,21 @@ const Footer = () => {
       <div className="fkex items-center mt-8 mb-4">
         <a
           href="https://www.danchui.dev/"
+          target="_blank"
           className="inline-block w-6 h-6 mr-4"
         >
           <CodeSlashIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
           href="https://www.linkedin.com/in/danchui/"
+          target="_blank"
           className="inline-block w-6 h-6 mr-4"
         >
           <LinkedInIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
           href="https://github.com/dan-chui"
+          target="_blank"
           className="inline-block w-6 h-6 mr-4"
         >
           <GitHubIcon className="hover:scale-125 transition-all duration-200" />
