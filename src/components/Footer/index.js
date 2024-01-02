@@ -42,21 +42,21 @@ const Footer = () => {
         <a
           href="https://www.danchui.dev/"
           target="_blank"
-          className="inline-block w-6 h-6 mr-4"
+          className="inline-block w-7 h-7 mr-4"
         >
           <CodeSlashIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
           href="https://www.linkedin.com/in/danchui/"
           target="_blank"
-          className="inline-block w-6 h-6 mr-4"
+          className="inline-block w-7 h-7 mr-4"
         >
           <LinkedInIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
           href="https://github.com/dan-chui"
           target="_blank"
-          className="inline-block w-6 h-6 mr-4"
+          className="inline-block w-7 h-7 mr-4"
         >
           <GitHubIcon className="hover:scale-125 transition-all duration-200" />
         </a>
