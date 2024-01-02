@@ -1,12 +1,14 @@
 const siteMetadata = {
-  title: 'Happy Bytes - a Web Development blog',
+  title: 'Happy Bytes - Web Development blog',
   author: 'Dan Chui',
   headerTitle: 'Next.js Blog',
-  description: 'A Web Development blog created with Next.js and Tailwind.css',
+  description:
+    'Blog website featuring news, opinions, and technical information about web development.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.danchui.dev/',
   siteLogo: '/logo.png',
+  socialBanner: '/social-banner.png',
   email: 'contact@danchui.dev',
   github: 'https://github.com/dan-chui',
   linkedin: 'https://www.linkedin.com/in/danchui/',

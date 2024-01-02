@@ -3,6 +3,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { CodeSlashIcon, GitHubIcon, LinkedInIcon } from '../Icons';
+import siteMetadata from '@/src/utils/siteMetaData';
 
 const Footer = () => {
   const {
@@ -40,23 +41,26 @@ const Footer = () => {
 
       <div className="fkex items-center mt-8 mb-4">
         <a
-          href="https://www.danchui.dev/"
+          href={siteMetadata.siteUrl}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
+          title="Portfolio"
         >
           <CodeSlashIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
-          href="https://www.linkedin.com/in/danchui/"
+          href={siteMetadata.linkedin}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
+          title="LinkedIn"
         >
           <LinkedInIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
-          href="https://github.com/dan-chui"
+          href={siteMetadata.github}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
+          title="GitHub"
         >
           <GitHubIcon className="hover:scale-125 transition-all duration-200" />
         </a>

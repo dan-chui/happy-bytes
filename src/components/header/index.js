@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './Logo';
 import Link from 'next/link';
 import { CodeSlashIcon, GitHubIcon, LinkedInIcon, SunIcon } from '../Icons';
+import siteMetadata from '@/src/utils/siteMetaData';
 
 const Header = () => {
   return (
@@ -23,23 +24,26 @@ const Header = () => {
       </nav>
       <div>
         <a
-          href="https://www.danchui.dev/"
+          href={siteMetadata.siteUrl}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
+          title="Portfolio"
         >
           <CodeSlashIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
-          href="https://www.linkedin.com/in/danchui/"
+          href={siteMetadata.linkedin}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
+          title="LinkedIn"
         >
           <LinkedInIcon className="hover:scale-125 transition-all duration-200" />
         </a>
         <a
-          href="https://github.com/dan-chui"
+          href={siteMetadata.github}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
+          title="GitHub"
         >
           <GitHubIcon className="hover:scale-125 transition-all duration-200" />
         </a>
