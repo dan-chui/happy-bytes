@@ -3,7 +3,7 @@
 import Logo from './Logo';
 import Link from 'next/link';
 import {
-  CodeSlashIcon,
+  CodeSquareIcon,
   GitHubIcon,
   LinkedInIcon,
   MoonIcon,
@@ -23,11 +23,11 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full p-4 px-10 flex items-center justify-between">
+    <header className="w-full p-4 px-5 sm:px-10 flex items-center justify-between">
       <Logo />
 
       <button
-        className="inline-block sm:hidden z-50"
+        className="inline-block sm:hidden mr-4 z-50"
         onClick={toggle}
         aria-label="Hamburger Menu"
       >
@@ -65,7 +65,15 @@ const Header = () => {
         </div>
       </button>
 
-      <nav className="w-max py-3 px-8 border border-solid border-dark rounded-full font-medium capitalize flex items-center fixed top-6 right-1/2 translate-x-1/2 bg-light/80 backdrop-blur-sm z-50">
+      <nav
+        className=" w-max py-3 px-6 sm:px-8 border border-solid border-dark rounded-full font-medium capitalize  items-center flex  sm:hidden
+        fixed top-6 right-1/2 translate-x-1/2 bg-light/80 backdrop-blur-sm z-50
+        transition-all ease duration-300
+        "
+        style={{
+          top: click ? '1rem' : '-5rem',
+        }}
+      >
         <Link href="/" className="mr-2">
           Home
         </Link>
@@ -120,20 +128,22 @@ const Header = () => {
         </button>
       </nav>
 
-      <div>
+      <div className=" hidden sm:flex items-center">
         <a
           href={siteMetadata.siteUrl}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
           title="Portfolio"
+          aria-label="Visit my Portfolio"
         >
-          <CodeSlashIcon className="hover:scale-125 transition-all duration-200" />
+          <CodeSquareIcon className="hover:scale-125 transition-all duration-200 dark:fill-light" />
         </a>
         <a
           href={siteMetadata.linkedin}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
           title="LinkedIn"
+          aria-label="Connect via LinkedIn"
         >
           <LinkedInIcon className="hover:scale-125 transition-all duration-200" />
         </a>
@@ -142,8 +152,9 @@ const Header = () => {
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
           title="GitHub"
+          aria-label="Visit my GitHub"
         >
-          <GitHubIcon className="hover:scale-125 transition-all duration-200" />
+          <GitHubIcon className="hover:scale-125 transition-all duration-200 dark:fill-light" />
         </a>
       </div>
     </header>

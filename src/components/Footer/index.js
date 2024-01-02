@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { CodeSlashIcon, GitHubIcon, LinkedInIcon } from '../Icons';
+import { CodeSquareIcon, GitHubIcon, LinkedInIcon } from '../Icons';
 import siteMetadata from '@/src/utils/siteMetaData';
 
 const Footer = () => {
@@ -46,7 +46,7 @@ const Footer = () => {
           className="inline-block w-7 h-7 mr-4"
           title="Portfolio"
         >
-          <CodeSlashIcon className="hover:scale-125 transition-all duration-200" />
+          <CodeSquareIcon className="hover:scale-125 transition-all duration-200 dark:fill-light" />
         </a>
         <a
           href={siteMetadata.linkedin}
@@ -62,7 +62,7 @@ const Footer = () => {
           className="inline-block w-7 h-7 mr-4"
           title="GitHub"
         >
-          <GitHubIcon className="hover:scale-125 transition-all duration-200" />
+          <GitHubIcon className="hover:scale-125 transition-all duration-200 dark:fill-light" />
         </a>
       </div>
     </footer>
