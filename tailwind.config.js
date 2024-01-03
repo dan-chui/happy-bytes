@@ -33,6 +33,8 @@ module.exports = {
         // @media (min-width: 1180px){...}
         xs: '480px',
         // @media (min-width: 480px){...}
+        xxs: '280px',
+        // @media (min-width: 280px){...}
       },
     },
   },
