@@ -4,7 +4,7 @@ const AboutCoverSection = () => {
   return (
     <section className="w-full md:h-[55vh] border-b-2 border-solid border-dark dark:border-light flex flex-col md:flex-row items-center justify-center text-dark dark:text-light">
       <div className="w-full md:w-1/2 flex flex-col text-left items-start justify-center px-5 xs:p-10 pb-10 lg:px-16">
-        <h2 className="font-bold capitalize text-3xl xs:text-4xl sxl:text-5xl  text-center lg:text-left">
+        <h2 className="font-bold capitalize text-2xl xs:text-3xl sxl:text-4xl  text-center lg:text-left">
           “Keep your eyes on the stars, and your feet on the ground.” ―Theodore
           Roosevelt
         </h2>
