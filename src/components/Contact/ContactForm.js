@@ -84,7 +84,7 @@ const ContactForm = () => {
       </div>
       <div className="pt-0 mb-3">
         <button
-          className="active:bg-blue-600 hover:shadow-lg focus:outline-none px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-blue-500 rounded shadow outline-none"
+          className="active:bg-blue-600 hover:shadow-lg hover:scale-105 focus:outline-none px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-blue-500 rounded shadow outline-none"
           type="submit"
         >
           Send

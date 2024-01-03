@@ -14,7 +14,7 @@ const Footer = () => {
   const onSubmit = (data) => console.log(data);
   console.log(errors);
   return (
-    <footer className="mt-16 rounded-2xl bg-dark/50 dark:bg-light/30 m-4 sm:m-10 flex flex-col items-center text-light ">
+    <footer className="mt-10 rounded-2xl bg-dark/50 dark:bg-light/30 m-4 sm:m-10 flex flex-col items-center text-light ">
       <h3 className="mt-10 font-medium text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4">
         Interesting Stories | Updates | Guides
       </h3>
@@ -28,7 +28,7 @@ const Footer = () => {
       >
         <input
           type="email"
-          placeholder="Email Address"
+          placeholder="Email"
           {...register('Email', { required: true, pattern: /^\S+@\S+$/i })}
           className="w-full bg-transparent pl-2 sm:pl-0 text-dark focus:border-dark focus:ring-0 border-0 border-b mr-2 pb-1  text-base xs:text-sm xxs:text-xs"
         />
