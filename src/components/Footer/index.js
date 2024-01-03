@@ -14,8 +14,8 @@ const Footer = () => {
   const onSubmit = (data) => console.log(data);
   console.log(errors);
   return (
-    <footer className="mt-16 rounded-2xl bg-dark/50 dark:bg-light/30 m-2 sm:m-10 flex flex-col items-center text-light ">
-      <h3 className="mt-16 font-medium text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4">
+    <footer className="mt-16 rounded-2xl bg-dark/50 dark:bg-light/30 m-4 sm:m-10 flex flex-col items-center text-light ">
+      <h3 className="mt-10 font-medium text-center capitalize text-2xl sm:text-3xl lg:text-4xl px-4">
         Interesting Stories | Updates | Guides
       </h3>
       <p className="mt-5 px-4 text-center w-full sm:w-3/5 font-light dark:font-medium text-sm sm:text-base">
@@ -39,7 +39,7 @@ const Footer = () => {
         />
       </form>
 
-      <div className="flex items-center mt-8 mb-4 ml-6">
+      <div className="flex items-center my-6 ml-6">
         <a
           href={siteMetadata.siteUrl}
           target="_blank"
