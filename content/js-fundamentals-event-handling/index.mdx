@@ -1,0 +1,114 @@
+---
+title: 'JavaScript Fundamentals: Event Handling'
+description: 'Basics of JS Event Handling'
+image: '../../public/blogs/5.webp'
+publishedAt: '2024-03-01'
+updatedAt: '2024-03-01'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+Let's identify and review examples of different Event Handling features available within JavaScript.
+
+## Event Handling
+
+_**addEventListener**_
+
+This is the preferred method for attaching event handlers. It allows multiple event listeners and avoids overwriting existing handlers.
+
+```js
+button.addEventListener('click', () => {
+  console.log('Button was clicked!');
+});
+```
+
+---
+
+_**onclick**_
+
+Assigns a function directly to the onclick
+property of an element. Be careful, as it can
+overwrite existing click handlers.
+
+```js
+button.onclick = () => {
+  console.log('Button was clicked!');
+};
+```
+
+---
+
+_**onmouseover/onmouseout**_
+
+Handles mouseover and mouseout events,
+respectively.
+
+```js
+element.onmouseover = () => {
+  element.style.background = 'white';
+};
+
+element.onmouseout = () => {
+  element.style.background = 'black';
+};
+```
+
+---
+
+_**onkeydown/onkeyup**_
+
+Manages keydown (detects when a key is pressed) and keyup (detects when a key is released) events, respectively.
+
+```js
+input.onkeydown = (event) => {
+  if (event.key === 'Enter') {
+    console.log('Enter key was pressed!');
+  }
+};
+
+input.onkeyup = (event) => {
+  if (event.key === 'Enter') {
+    console.log('Enter key was released!');
+  }
+};
+```
+
+---
+
+_**onsubmit**_
+
+Handles the submit event of a Form element.
+
+```js
+form.onsubmit = (event) => {
+  event.preventDefault();
+  console.log('Form was submitted!');
+};
+```
+
+---
+
+_**onchange**_
+
+Responds to changes in the value of an Input element.
+
+```js
+input.onchange = () => {
+  console.log('Input value was changed!');
+};
+```
+
+---
+
+_**onload**_
+
+Handles the load event of a window or an image element.
+
+```js
+window.onload = () => {
+  console.log('Window loaded!');
+};
+```

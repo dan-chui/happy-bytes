@@ -1,0 +1,144 @@
+---
+title: 'JavaScript Fundamentals: Loop Types'
+description: 'Basics of JS Loop Types'
+image: '../../public/blogs/7.webp'
+publishedAt: '2024-03-02'
+updatedAt: '2024-03-02'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+In this post, we will quickly run through **7 different ways of performing Loops** in JavaScript by looking at examples.
+
+## Looping
+
+_**for loop**_
+
+```js
+for (initialExpression; condition; updateExpression) {
+  // for loop body
+}
+```
+
+```js
+const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+
+for (let i = 0; i < cars.length; i++) {
+  console.log(cars[i]);
+}
+```
+
+---
+
+_**while loop**_
+
+```js
+while (condition) {
+  // while loop body
+}
+```
+
+```js
+const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+
+let i = 0;
+
+while (i < cars.length) {
+  console.log(cars[i]);
+  i++;
+}
+```
+
+---
+
+_**do-while loop**_
+
+```js
+do {
+  // do-while loop body
+} while (conditon);
+```
+
+```js
+const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+
+let i = 0;
+
+do {
+  console.log(cars[i]);
+  i++;
+} while (i < cars.length);
+```
+
+---
+
+_**forEach loop**_
+
+```js
+array.forEach(function(currentValue, index, arr));
+```
+
+```js
+const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+
+cars.forEach((element) => {
+  console.log(element);
+});
+```
+
+---
+
+_**map loop**_
+
+```js
+array.map(function(currentValue, index, arr), thisValue);
+```
+
+```js
+const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+
+const newCars = cars.map((e) => {
+  return e.toUpperCase();
+});
+```
+
+---
+
+_**for-of loop**_
+
+```js
+for (element of iterable) {
+  // for-of loop body
+}
+```
+
+```js
+const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+
+for (let element of cars) {
+  console.log(element);
+}
+```
+
+---
+
+_**for-in loop**_
+
+```js
+for (key in object) {
+  // for-in loop body
+}
+```
+
+```js
+const cars = { 1: 'Toyota', 2: 'Nissan', 3: 'Mitsubishi' };
+
+for (let key in cars) {
+  console.log(cars[key]);
+}
+```
+
+---

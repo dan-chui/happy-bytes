@@ -1,0 +1,157 @@
+---
+title: 'React Fundamentals: Fetch Data'
+description: 'Different methods to Fetch Data in React JS'
+image: '../../public/blogs/8.webp'
+publishedAt: '2024-03-05'
+updatedAt: '2024-03-05'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - react
+  - javascript
+  - web development
+---
+
+Let's take a look at examples of how to Fetch Data in React JS.
+
+## Fetch Data
+
+**Fetch method**:
+
+The fetch() method in JS is used to make requests to the server, and load the information onto web pages. This request can be from any API that returns the data in JSON or XML formats. This method returns a Promise.
+
+```js
+function App() {
+  useEffect(() => {
+    fetch('https://webpage.com/')
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }, []);
+  return <div>Hello!</div>;
+}
+```
+
+---
+
+**Async-Await**:
+
+This is the preferred way to fetch data from an API because it is cleaner without using many .then() callbacks, and also returns asynchronously resolved data. In the Async block, we can use the Await function to wait for the Promise.
+
+The _try...catch_ statement is comprised of a _try_ block and either a _catch_ block, a _finally_ block, or both. The code in the _try_ block is executed first, and if it throws an exception, the code in the _catch_ block will be executed. The code in the _finally_ block will always be executed before control flow exits the entire construct. The _try...catch_ block helps identify errors and provides cleaner code.
+
+```js
+function App() {
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get('https://webpage.com/');
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  });
+  return <div>Hello!</div>;
+}
+```
+
+---
+
+**Axios library**:
+
+Axios can be imported in vanilla JavaScript or with any library. Using Axios, we can easily send asynchronous HTTP requests to REST APIs & perform CRUD (create, read, update, delete) operations.
+
+```js
+function App() {
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get('https://webpage.com/');
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  });
+  return <div>Hello!</div>;
+}
+```
+
+---
+
+**Custom Hook**:
+
+A Hook is a way to extend additional functionality into functional components. Previously, this functionality was only available to class components. It is customary to name a Hook with "use", such as "useFetch". Additionally, the Hook can use one or more React Hooks inside them.
+
+```js
+import { useState } from 'react';
+
+const useFetch = (url) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [apiData, setApiData] = useState(null);
+  const [serverError, setServerError] = useState(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(url);
+        const data = await response?.data;
+
+        setApiData(data);
+        setIsLoading(false);
+      } catch (error) {
+        setServerError(error);
+        setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [url]);
+  return { isLoading, apiData, serverError };
+};
+```
+
+---
+
+**Usage in a Component**:
+
+We can directly use our Custom Hook to fetch data by first importing the _useFetch_ hook, and then passing in the URL of the API endpoint from where we want to retrieve data.
+
+```js
+import { useFetch } from './useFetch';
+
+const App = () => {
+  const { isLoading, apiData, serverError } = useFetch('https://webpage.com/');
+
+  return (
+    <div>
+      <h1>API Data</h1>
+      {isLoading && <span>Loading..</span>}
+      {!isLoading && serverError ? (
+        <span>There was an Error fetching data..</span>
+      ) : (
+        <span>{JSON.stringify(apiData)}</span>
+      )}
+    </div>
+  );
+};
+```
+
+---
+
+**React Query**:
+
+The React Query Library can not only fetch data, but also perform caching and refetching as well. This helps to improve the overall user experience with a more efficient and reliable app.
+
+```js
+import axios from 'axios';
+import { useQuery } from 'react-query';
+
+function App() {
+  const { isLoading, data, error } = useQuery('post', () =>
+    axios('https://webpage.com/')
+  );
+  console.log(data);
+  return <div>Hello!</div>;
+}
+```

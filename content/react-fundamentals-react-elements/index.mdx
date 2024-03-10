@@ -1,0 +1,191 @@
+---
+title: 'React Fundamentals: Elements'
+description: 'Overview of JSX and React elements'
+image: '../../public/blogs/10.webp'
+publishedAt: '2024-03-06'
+updatedAt: '2024-03-06'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - react
+  - javascript
+  - web development
+---
+
+This is a basic overview of **JSX** and **React Elements**.
+
+## JSX
+
+> Almost all React code is written in JSX. JSX is a syntax extension of Javascript that allows us to write HTML-like syntax in Javascript.
+
+There are 2 valid ways to return JSX from a function.
+
+First, you can put the opening tag of the JSX block on the same line as the return. Use this style if you are returning a single line of JSX.
+
+```js
+const App = () => {
+  return <h1>Hello there!</h1>;
+};
+```
+
+Second, you can use a set of parens. The opening paren must be on the same line as the return statement. Use this style if you are returning multiple lines of JSX.
+
+```js
+const App = () => {
+  return (
+    <div>
+      <h1>My Blog Post</h1>
+      <p>Blog content goes here</p>
+    </div>
+  );
+};
+```
+
+Make sure you always put the opening JSX element or paren on the same line as the return statement. Otherwise, the Javascript will assume you want to return nothing!
+
+---
+
+## React Elements
+
+**React Element Tags**:
+
+React elements look just like HTML, in fact they render the same equivalent HTML elements.
+
+```HTML
+<h1>Header</h1>
+<button>Button</button>
+<ul>
+	<li>item 1</li>
+	<li>item 2</li>
+	<li>item 3</li>
+</ul>
+```
+
+Single tag elements like the `img` element and the `br` element must be closed.
+
+```HTML
+<img src="image.jpeg" />
+<br />
+```
+
+---
+
+**React Element Attributes**:
+
+React elements have different attributes compares to their HTML counterparts. Since JSX is still javascript, we use camelcase. Also, `class` is a protected keyword in javascript (creating classes) so the HTML `class` attribute in JSX is `className`.
+
+```HTML
+<div className="container">
+	<img className="container-image" src="image.jpeg"/>
+</div>
+```
+
+---
+
+**React Elements Embedded Javascript**:
+
+The power of JSX is that it’s javascript and HTML. This means you can write javascript to render different attributes directly in your javascript using curly braces `{}`.
+
+```HTML
+const divClass = "div-class"
+<div className={divClass}></div>
+```
+
+---
+
+**React Element Inline Styles**:
+
+React elements just like HTML elements can use the `style` attribute, but you pass them as javascript objects instead of double quote strings.
+
+`HTML`:
+
+```HTML
+<h1 style="color:blue;text-align:center">Header</h1>
+```
+
+`JSX`:
+
+```HTML
+<h1 style={{ color: 'blue', textAlign: 'center' }}>Header</h1>
+```
+
+---
+
+**React Fragments**:
+
+React has a special element called a fragment. It’s a special element that doesn’t actually render into the DOM (Document Object Model), but can act as a parent to a group of elements.
+
+```HTML
+import { Fragment } from 'react'
+
+<Fragment>
+	<h1> My H1 </h1>
+	<p> My Paragraph </p>
+</Fragment>
+```
+
+If you don’t want to import Fragment from the React library, you can also use `<>`.
+
+```HTML
+<>
+	<h1> My H1 </h1>
+	<p> My Paragraph </p>
+</>
+```
+
+Fragments are useful in components since components require us to return one parent level element, and if we don’t want to needlessly add HTML elements to our website, we can just use fragments.
+
+---
+
+## Values in JSX
+
+We can show Javascript variables in JSX by wrapping the variable with curly braces `{}`.
+
+```js
+const App = () => {
+  const count = 5;
+
+  return <div>Value of Count is {count}</div>;
+};
+// Output: Value of Count is 5
+```
+
+JSX can display numbers and strings. The values true, false, null, and undefined are not displayed.
+
+```js
+const App = () => {
+  const count = 5;
+  const name = 'Dan';
+  const booleanTrue = true;
+  const booleanFalse = false;
+  const nullValue = null;
+  const undefinedValue = undefined;
+
+  return (
+    <ul>
+      <li>Number: {count}</li>
+      <li>String: {name}</li>
+      <li>True: {booleanTrue}</li>
+      <li>False: {booleanFalse}</li>
+      <li>Null: {nullValue}</li>
+      <li>Undefined: {undefinedValue}</li>
+    </ul>
+  );
+};
+
+// Output:
+// 	Number: 5
+// 	String: Dan
+// 	True:
+// 	False:
+// 	Null:
+```
+
+Curly braces `{}` can contain any valid Javascript expression, not just a reference to a variable.
+
+```js
+const App = () => {
+  return <div>{10 + 10}</div>;
+};
+// Output: 20
+```

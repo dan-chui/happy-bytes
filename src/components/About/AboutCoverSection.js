@@ -17,10 +17,10 @@ const AboutCoverSection = () => {
             </p>
             <br></br>
             <p>
-              Since then, I have learned JavaScript and focused on building
-              interactive and responsive web applications. I am excited to
-              contribute to the dynamic world of web development, push
-              boundaries, and embrace new challenges.
+              Ever since, I have focused on JavaScript and building interactive
+              and responsive web applications. I am excited to contribute to the
+              dynamic world of web development, push boundaries, and embrace new
+              challenges.
             </p>
 
             <br></br>

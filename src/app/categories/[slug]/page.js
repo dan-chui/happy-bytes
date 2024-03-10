@@ -54,9 +54,7 @@ const CategoryPage = ({ params }) => {
         <h1 className="mt-6 font-semibold text-2xl md:text-4xl lg:text-5xl">
           #{params.slug}
         </h1>
-        <span className="mt-2 inline-block">
-          Discover more categories and expand your knowledge!
-        </span>
+        <span className="mt-2 inline-block">Discover more categories!</span>
       </div>
       <Categories categories={allCategories} currentSlug={params.slug} />
 

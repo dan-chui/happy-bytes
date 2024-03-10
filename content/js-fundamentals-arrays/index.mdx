@@ -1,0 +1,349 @@
+---
+title: 'JavaScript Fundamentals: Arrays'
+description: 'Basics of JS Arrays'
+image: '../../public/blogs/20.webp'
+publishedAt: '2024-03-08'
+updatedAt: '2024-03-08'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+## Arrays
+
+An array is a special variable that can hold more than one value. An array can hold many values under a single name, and you can access the values by referring to an index number.
+
+The main benefits of using an Array include:
+
+> Efficient Data Manipulation: JavaScript arrays offer built-in methods for easy data manipulation, such as adding, removing, and sorting elements.
+
+> Indexed Access: Elements in JavaScript arrays can be quickly accessed using index values, enabling fast data retrieval.
+
+It is common practice to use `const` when declaring an array, and using an array literal is the easiest way to create a JavaScript array:
+
+```js
+const array_name = [item1, item2, ...];
+```
+
+We can access elements within an array by rerferring to its _index number_. It is important to note that array indexes start at `[0]`.
+
+`[0]` refers to the 1st element in an index. `[1]` refers to the 2nd, and so on.
+
+```js
+const cars = ['Toyota', 'Honda', 'Nissan'];
+let car = cars[0];
+// Will refer to "Toyota"
+```
+
+---
+
+## The Difference Between Arrays and Objects
+
+In JavaScript:
+
+1. Arrays use numbered indexes.
+2. Objects use named indexes.
+
+There are 2 key points to consider when making a choice between either option:
+
+1. Use arrays when you want the element names to be `numbers`.
+2. Use objects when you want the element names to be `strings (text)`.
+
+---
+
+## Array Methods
+
+This is a cheat sheet for the most common and useful Array methods:
+
+### Mutate the Original array
+
+<u>_Add to Original_</u>
+
+`.push()` adds a new element to an array (at the end).
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+colors.push('White');
+console.log(colors); // Output: ['Blue', 'Red', 'Green', 'Black', 'White']
+```
+
+`.unshift()` adds a new element to an array (at the beginning), and "unshifts" older elements.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+colors.unshift('White');
+console.log(colors); // Output: ['White', 'Blue', 'Red', 'Green', 'Black']
+```
+
+`.splice()` can be used to add new items to an array.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+colors.splice(2, 0, 'White', 'Orange');
+console.log(colors); // Output: ['Blue', 'Red', 'White', 'Orange', 'Green', 'Black']
+```
+
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("White" , "Orange" - in this example) define the new elements to be added.
+
+---
+
+<u>_Remove from Original_</u>
+
+`.pop()`, removes the last element from an array.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+colors.pop();
+console.log(colors); // Output: ['Blue', 'Red', 'Green']
+```
+
+`.shift()`, removes the first array element and "shifts" all other elements to a lower index.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+colors.shift();
+console.log(colors); // Output: ['Red', 'Green', 'Black']
+```
+
+`.splice()`, can also be used to remove items from an array.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+colors.splice(0, 1);
+console.log(colors); // Output: ['Red', 'Green', 'Black']
+```
+
+The first parameter (0) defines the position where new elements should be added (spliced in).
+
+The second parameter (1) defines how many elements should be removed.
+
+The rest of the parameters are omitted. No new elements will be added.
+
+---
+
+### Create a New Array
+
+`.map()` returns a new array that contains the applied results of an operation on all the original array elements.
+
+```js
+const numbers = [11, 22, 33, 44];
+const newArr = numbers.map(myFunction);
+
+function myFunction(num) {
+  return num * 10;
+}
+console.log(newArr); // Output: 110,220,330,440
+```
+
+`.filter()` creates a new array filled with elements that are 'filtered' by a function. It does not execute the function for empty elements, and does not change the original array.
+
+```js
+const ages = [33, 47, 15, 65];
+const result = ages.filter(checkAdult);
+
+function checkAdult(age) {
+  return age >= 18;
+}
+console.log(result); // Output: 33,47,65
+```
+
+`.slice()` selects a part of an array, and returns the new array (up to a _not inclusive_ given end). It also does not change the original array.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+const primary = colors.slice(0, 3);
+console.log(primary); // Output: ['Blue', 'Red', 'Green']
+```
+
+`.concat()` concatenates (joins together) two or more arrays. It returns a new array that contains the joined arrays, and does not change the existing arrays.
+
+```js
+const array1 = ['Dan', 'Bill', 'Sally'];
+const array2 = ['Alice', 'Chris'];
+const workers = array1.concat(array2);
+console.log(workers); // Output: Dan,Bill,Sally,Alice,Chris
+```
+
+`.flat()` concatenates sub-array elements - it (flattens) all the elements into a new array.
+
+```js
+const array = [
+  [1, 2, 3],
+  [4, 5],
+];
+const newArray = array.flat();
+console.log(newArray); // Output: 1,2,3,4,5
+```
+
+`.flatMap()` maps all array elements and creates a new flat array. It creates a new array from calling a function for every array element, does not execute the function for empty elements, and does not change the original array.
+
+```js
+const array = [1, 2, 3, 4, 5];
+const newArray = array.flatMap((x) => x * 2);
+console.log(newArray); // Output: 2,4,6,8,10
+```
+
+---
+
+### Create an Array Index
+
+`.indexOf()` searches the array for an element and returns its position. It returns -1 if the value is not found. The _indexOf()_ method starts at a specified index and searches from left to right (from the given start postion to the end of the array). By default, the search starts at the first element and ends at the last. Negative start values counts from the last element (but still searches from left to right).
+
+```js
+const fruits = ['Apple', 'Banana', 'Melon', 'Peach'];
+let index = fruits.indexOf('Banana');
+console.log(index); // Output: 1
+```
+
+`.findIndex()` returns the index of the first element in an array that passes certain conditions. It executes a function for each array element, returns -1 if no match is found, does not execute the function for empty array elements, and does not change the original array.
+
+```js
+const ages = [15, 17, 21, 36];
+
+ages.findIndex(checkAge);
+
+function checkAge(age) {
+  return age > 18;
+}
+// Output: 2
+```
+
+---
+
+### Create an Array Element
+
+`.find()` returns the value of the first element in an array that passes certain conditions. It executes a function for each array element, returns undefined if no elements are found, does not execute the function for empty elements, and does not change the original array.
+
+```js
+const ages = [15, 17, 21, 36];
+
+function checkAge(age) {
+  return age > 18;
+}
+
+function myFunction() {
+  document.getElementById('demo').innerHTML = ages.find(checkAge);
+}
+// Output: 21,36
+```
+
+---
+
+### Create a New String
+
+`.join()` creates a new string, and can also join all array elements into a string.
+It is almost identical to `toString()`, but `join()` can specify using a separator.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+document.getElementById('demo').innerHTML = colors.join(' + ');
+// Output: Blue + Red + Green + Black
+```
+
+---
+
+### Check if an array includes (something)
+
+`.includes()` checks if an array contains a specified element. It returns true if an array contains a specified value, returns false if the value is not found, and is case sensitive.
+
+```js
+const ages = [15, 17, 21, 36];
+ages.includes(15);
+// Output: true
+```
+
+`.some()` checks if _any_ of the elements in an array meet certain conditions. It checks if any array elements pass a test (provided as a callback function). It executes the callback function once for each array element, and returns true (and stops) if the function returns true for one of the array elements, but returns false if the function returns false for all of the array elements. It does not execute the function for empty array elements, and does not change the original array.
+
+```js
+const ages = [15, 17, 21, 36];
+
+ages.some(checkAdult);
+function checkAdult(age) {
+  return age > 18;
+}
+// Output: true
+```
+
+`.every()` checks if _every_ element in an array meet certain conditions. It returns true if the function returns true for all elements, but returns false if the function returns false for one element. It does not execute the function for empty elements, and does not change the original array
+
+```js
+const ages = [15, 17, 21, 36];
+
+ages.every(checkage);
+
+function checkAdult(age) {
+  return age > 18;
+}
+// Output: false
+```
+
+---
+
+### Transform to Value
+
+`.reduce()` will reduce the values of an array to a single value _(from left-to-right)_. It returns a single value: the function's accumulated result. Essentially, it 'boils down' an array to a single a value of any type: number, string, boolean, or even a new array or object. It does not execute the function for empty array elements, and does not change the original array.
+
+```js
+const numbers = [200, 100, 50];
+document.getElementById('demo').innerHTML = numbers.reduce(myFunction);
+
+function myFunction(total, num) {
+  return total - num;
+}
+// Output: 50
+```
+
+---
+
+### Loop through an Array
+
+`.forEach()` will call a function for each array element, and does not execute the function for empty array elements
+
+```js
+const cars = ['Toyota', 'Honda', 'Nissan'];
+fruits.forEach(myFunction);
+// Output:
+//    0:Toyota
+//    1:Honda
+//    2:Nissan
+```
+
+---
+
+### Other common methods
+
+`.length` returns the length (size) of an array.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+let size = colors.length;
+console.log(size); // Output: 4
+```
+
+---
+
+`.toString()` converts an array to a string, and returns the result with array values separated by commas. It does not change the original array.
+
+```js
+const fruits = ['Apple', 'Banana', 'Melon', 'Peach'];
+let text = fruits.toString();
+// Output: Apple,Banana,Melon,Peach
+```
+
+---
+
+`.at()` returns an indexed element from an array. `[]` returns the same result. However, it is important to note that `[]` is used in JavaScript to access both arrays and objects. The introduction of the `at()` method allows access to the last property of the object.
+
+```js
+const colors = ['Blue', 'Red', 'Green', 'Black'];
+let color = colors.at(2);
+// Output: Green
+```
+
+---

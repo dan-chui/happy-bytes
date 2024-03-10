@@ -1,0 +1,94 @@
+---
+title: 'JavaScript Fundamentals: Functions'
+description: '6 Function Types'
+image: '../../public/blogs/3.webp'
+publishedAt: '2024-03-05'
+updatedAt: '2024-03-05'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+Let's look at a brief overview of **6 Function types**:
+
+## Functions
+
+_**Named Functions**_ - The traditional method.
+
+```js
+function myFunction() {
+  console.log('Hello World!');
+}
+
+myFunction();
+```
+
+---
+
+_**Anonymous Functions**_ - Functions without a name, are used as function expressions or for arguments.
+
+```js
+let greeting = function (name) {
+  console.log(`Hello ${name}`);
+};
+
+greeting('Dan');
+// Output: Hello Dan
+```
+
+---
+
+_**Arrow Functions**_ - Introduced in the ES6 JS update, allows shorter syntax and one-line functions.
+
+```js
+let greeting = () => console.log('Hello');
+
+greeting();
+// Output: Hello
+```
+
+---
+
+_**IIFE Functions**_ - Immediately Invoked Function Expressions (IIFE), are immediately executed after being called. IIFE are used to create private scopes, and to avoid polluting the global namespace.
+
+```js
+(function () {
+  let string = 'Hi there!';
+  console.log(string);
+})();
+// Immediately Invoked Output: Hi there!
+```
+
+---
+
+_**Higher Order Functions**_ - Functions that take one or more functions as arguments, or returns a function. Example: map(), filter(), reduce()
+
+```js
+let array = [5, 10, 15];
+
+let newArray = array.map((element) => element + 10);
+console.log(newArray);
+// Output: [25, 30, 35]
+```
+
+---
+
+_**Constructor Functions**_ - These are used as templates/blueprints for creating objects with similar properties and methods. They are invoked using the _new_ keyword to create instances of objects.
+
+```js
+function Person(name, country) {
+  this.name = name;
+  this.country = country;
+}
+
+let user1 = new Person('Dan', 'Japan');
+
+console.log(
+  `Hello there! I'm ${user1.name}, and I'm located in ${user1.country}!`
+);
+// Output: Hello there! I'm Dan, and I'm located in Japan!
+```
+
+---

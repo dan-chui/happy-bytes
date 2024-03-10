@@ -1,0 +1,98 @@
+---
+title: 'JavaScript Advanced: Scopes & Type Coercion'
+description: 'A breakdown of Scopes & Type Coercion'
+image: '../../public/blogs/19.webp'
+publishedAt: '2024-03-08'
+updatedAt: '2024-03-08'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+We will simplify 2 challenging advanced JavaScript topics: **Scopes** & **Type Coercion**.
+
+## Scopes
+
+> Scoping: How a program's variables are organized and accessed.
+
+> Lexical environment: the scope or environment the engine is currently reading code in.
+
+A new lexical environment is created when curly brackets {} are used, even nested brackets `{{...}}` create a new lexical environment.
+
+The execution context tells the engine which lexical environment it is currently working in and the lexical scope determines the available variables.
+
+> Scope: The environment in which a certain variable is declared. There is a _Global_ scope, _Function_ scope, and _Block_ scope.
+
+_Global_ scope:
+
+1. Available outside of _any_ function or block.
+2. Variables declared in _Global_ scope are accessible everywhere.
+
+```js
+const name = 'Dan';
+const human = true;
+```
+
+_Function_ scope:
+
+1. Variables are accessible _*only inside*_ a function or block, _NOT_ outside.
+2. It is also called _Local_ scope.
+
+```js
+function localScope() {
+  const localVariable = 'Local';
+  console.log(localVariable); // Accesses localVariable
+}
+
+localScope(); // Output: "Local"
+console.log(localVariable); // Output: ReferenceError
+```
+
+_Block_ scope:
+
+1. Variables are accessible _only inside a block_.
+2. #1 only applies to `let` and `const` variables.
+3. Functions are also block scoped (only in Strict mode)
+
+```js
+function localScope() {
+  const localVariable = 'Local';
+  console.log(localVariable);
+}
+
+localScope(); // Output: "Local"
+console.log(localVariable); // Output: ReferenceError
+```
+
+> Scope of a variable: The region of a code where a certain variable can be accessed.
+
+---
+
+## Type Coercion
+
+Type coercion is the process of converting one type of value into another. There are 3 types of conversion in JavaScript:
+
+1. to `string`
+2. to `boolean`
+3. to `number`
+
+```js
+let string = '1';
+let number = 1;
+number == string; // Output: true
+
+// == is loose equality, === is strict equality
+// double equals (==) will perform a type conversion
+// one or both sides may undergo conversions
+// in this case, 1 == 1 or '1' == '1' before checking equality
+```
+
+_Strict equals_: The triple equals (===) or strict equality compares two values without type coercion. If the values are not the same type, then the values are not equal.
+
+```js
+let string = '1';
+let number = 1;
+number === string; // Output: false
+```

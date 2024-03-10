@@ -8,7 +8,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.danchui.dev/',
   siteLogo: '/logo.png',
-  socialBanner: '/social-banner.png',
+  socialBanner: '/social-banner.webp',
   email: 'contact@danchui.dev',
   github: 'https://github.com/dan-chui',
   linkedin: 'https://www.linkedin.com/in/danchui/',

@@ -1,0 +1,181 @@
+---
+title: 'JavaScript Fundamentals: Promises'
+description: 'Basics of JS Promises'
+image: '../../public/blogs/4.webp'
+publishedAt: '2024-03-05'
+updatedAt: '2024-03-05'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+## Promises
+
+A Promise is a good way to handle asynchronous operations, and is used to identify if an asynchronous operation was successfully completed or not. Basically, a Promise can be thought of as a container for a future value.
+
+A Promise can have 1 of 3 states:
+
+1.  _Pending_ - a process is not complete
+2.  _Fulfilled_ - the operation was a success
+3.  _Rejected_ - an error occurred
+
+One of the main benefits of Promises is that we no longer need to rely on events and callbacks passed into asynchronous functions to handle asynchronous results. So instead of nesting callbacks, we can _chain promises_ for a sequence of asynchronous operations, which allows us to escape from _callback hell_.
+
+---
+
+**Create a Promise**:
+
+To create a Promise object, we use the Promise() constructor.
+
+```js
+let promise = new Promise(function(resolve, reject)) {
+  // action
+}
+```
+
+_Example:_
+
+```js
+const count = true;
+
+let countValue = new Promise(function (resolve, reject) {
+  if (count) {
+    resolve('There is a count value.');
+  } else {
+    reject('There is no count value.');
+  }
+});
+```
+
+---
+
+**Promise Chaining**:
+
+Promises are useful when you have to handle multiple asynchronous tasks, one after another.
+
+You can peform and operation after a Promise is resolved using methods: then(), catch() and finally().
+
+```js
+let promise = new Promise(function(resolve, reject)) {
+  // action
+}
+```
+
+---
+
+**then() method**:
+
+The then() method is used with the callback when the promise is either successfully _fulfilled_ or _resolved_.
+
+You can chain multiple then() methods with the promise.
+
+```js
+// return a promise
+let countValue = new Promise(function (resolve, reject) {
+  resolve('Promise was resolved.');
+});
+
+//executes when promise is resolved successfully
+countValue
+  .then(function successValue(result) {
+    console.log(result);
+  })
+  .then(function successValue2() {
+    console.log('You can call multiple functions using this.');
+  });
+```
+
+---
+
+**catch() method**:
+
+The catch() method is used with the callback when the promise is _rejected_ or if an error happens.
+
+```js
+// return a promise
+let countValue = new Promise(function (resolve, reject) {
+  reject('Promise was rejected.');
+});
+
+//executes when promise is resolved successfully
+countValue
+  .then(function successValue(result) {
+    console.log(result);
+  })
+  .catch(
+    // executes if an error happens
+    function errorValue(result) {
+      console.log(result);
+    }
+  );
+
+// Promise was rejected
+```
+
+---
+
+**finally() method**:
+
+The finally() method is executed when the promise is either successfully _resolved_ or _rejected_.
+
+You can chain multiple then() methods with the promise.
+
+```js
+// return a promise
+let countValue = new Promise(function (resolve, reject) {
+  resolve('Promise resolved.');
+});
+
+// add other blocks of code
+countValue.finally(function hello() {
+  console.log('This code was executed.');
+});
+```
+
+---
+
+**Promises vs. Callback**:
+
+_Promises_
+
+1. Easy to read and user-friendly syntax.
+2. Error handling is easier to manage.
+
+```js
+api()
+  .then(function (result) {
+    return api2();
+  })
+  .then(function (result2) {
+    return api3();
+  })
+  .then(function (result3) {
+    // execute code
+  })
+  .catch(function (error) {
+    // handle errors that might occur
+  });
+```
+
+_Callbacks_
+
+1. Difficult to follow syntax.
+2. Error handling could be difficult to manage.
+3. May lead to the dreaded _callback hell_
+
+```js
+api(function (result) {
+  api2(function (result2) {
+    api3(function (result3) {
+      // execute code
+      if (error) {
+        // take action
+      } else {
+        // take action
+      }
+    });
+  });
+});
+```
