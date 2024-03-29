@@ -13,11 +13,11 @@ const AboutCoverSection = () => {
             <p>
               Hi there - thanks for stopping by! I'm a Web Developer based in
               Tokyo, Japan. From a young age, I have carried a passion for
-              technology in general, and I discovered coding more recently.
+              technology, and I discovered coding more recently.
             </p>
             <br></br>
             <p>
-              Ever since, I have focused on JavaScript and building interactive
+              Since then, I have focused on JavaScript and building interactive
               and responsive web applications. I am excited to contribute to the
               dynamic world of web development, push boundaries, and embrace new
               challenges.
