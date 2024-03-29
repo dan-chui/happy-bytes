@@ -11,7 +11,7 @@ const AboutCoverSection = () => {
         <p className="font-medium mt-4 text-base">
           <span>
             <p>
-              Hi there - thanks for stopping by! I'm a web developer based in
+              Hi there - thanks for stopping by! I'm a Web Developer based in
               Tokyo, Japan. From a young age, I have carried a passion for
               technology in general, and I discovered coding more recently.
             </p>
