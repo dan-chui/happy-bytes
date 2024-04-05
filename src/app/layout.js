@@ -1,7 +1,11 @@
 import './globals.css';
 import { cx } from '@/src/utils';
 import { Inter, Manrope } from 'next/font/google';
+<<<<<<< HEAD
 import Header from '../components/Header/index';
+=======
+import Header from '../components/Header';
+>>>>>>> 5b55fa01e0c24b7e135613caacb72ce6f7440712
 import Footer from '../components/Footer';
 import siteMetadata from '../utils/siteMetaData';
 import ThemeScript from '../components/ThemeScript';
