@@ -12,6 +12,7 @@ const SkillList = [
   'HTML',
   'CSS',
   'Tailwind CSS',
+  'Vite',
   'npm',
   'Git',
   'Version control',

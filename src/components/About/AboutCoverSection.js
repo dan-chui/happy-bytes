@@ -29,15 +29,15 @@ const AboutCoverSection = () => {
               <strong className="text-xl underline">
                 <a href="https://www.danchui.dev/" target="_blank">
                   {' '}
-                  Developer Portfolio
+                  Portfolio Website
                 </a>
               </strong>{' '}
               to view my latest projects as well.
             </p>
             <br></br>
             <p>
-              If you like what you find here, feel free to connect with me using
-              the links provided!
+              If you like what you find, feel free to connect with me using the
+              links provided!
             </p>
           </span>
         </p>
