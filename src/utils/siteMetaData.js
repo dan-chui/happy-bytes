@@ -6,7 +6,7 @@ const siteMetadata = {
     'Blog website featuring news, updates, and technical information about web development.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://happy-bytes.vercel.app/',
+  siteUrl: 'https://www.danchui.dev/',
   siteLogo: '/logo.png',
   socialBanner: '/social-banner.webp',
   email: 'contact@danchui.dev',
