@@ -1,3 +1,93 @@
+# Happy Bytes
+
+## 💻 Project
+Welcome to **Happy Bytes**!
+
+**Happy Bytes** is a Blog website built using the Next.js framework, and is dedicated to sharing information and best practices of web development when using JavaScript and modern JavaScript frameworks. The purpose is to provide information in easy to understand language for all levels of Web Development users.
+
+Please visit (in a new tab): https://happy-bytes.vercel.app/
+
+## 🚀 Technologies
+
+- Next.js
+- Contentlayer
+- Markdown blogs
+- React Hook form
+- Tailwind CSS
+- Supabase
+- HeroTofu API
+- Vercel
+
+## 💫 Features
+
+- **Modern Framework**: Utilizing Next.js and custom React Hooks plus components to maximise efficiency and reusability.
+
+- **Blog articles**: Contentlayer manages and renders articles using Markdown.
+
+- **Database**: Article View count is managed by Supabase, which is an open-source Postgres database.
+
+- **API**: Connected to the HeroTofu API to allow email contact by input form.
+
+- **UI/UX**: Clean User interface stylized by Tailwind CSS. Light/Dark mode also enabled.
+
+- **SEO Optimization**: SEO optimized using Next Sitemap & Google's structured json-ld schema.
+
+---
+
+## Demo
+
+Please visit (in a new tab): https://happy-bytes.vercel.app/
+
+![](/public/screenshot1.webp)
+
+![](/public/screenshot2.webp)
+
+![](/public/screenshot3.webp)
+
+![](/public/screenshot4.webp)
+
+![](/public/screenshot5.webp)
+
+![](/public/screenshot6.webp)
+
+---
+
+## 🌎 Getting Started
+
+## Installation
+
+To run the Happy Bytes repository locally:
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/dan-chui/happy-bytes
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd happy-bytes
+   ```
+
+3. Install the dependencies using a package manager of your choice. For npm:
+
+   ```
+   npm install
+   ```
+
+4. Start the application:
+
+   ```
+   npm run dev
+   ```
+
+5. Open your browser and visit `http://localhost:3000` to access.
+
+- Special credit to [CodeBucks](https://devdreaming.com/) and [freeCodeCamp](https://www.freecodecamp.org/) for providing a Blog Tutorial.
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
