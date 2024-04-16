@@ -3,7 +3,7 @@
 ## 💻 Project
 Welcome to **Happy Bytes**!
 
-**Happy Bytes** is a Blog website built using the Next.js framework, and is dedicated to sharing information and best practices of web development when using JavaScript and modern JavaScript frameworks. The purpose is to provide information in easy to understand language for all levels of Web Development users.
+**Happy Bytes** is a Blog website built using the Next.js framework. The Blog is dedicated to sharing information and best practices of web development, especially JavaScript and modern JavaScript frameworks. Its purpose is to provide information in easy to understand language for all levels of Web Development users.
 
 Please visit (in a new tab): https://happy-bytes.vercel.app/
 
@@ -22,11 +22,11 @@ Please visit (in a new tab): https://happy-bytes.vercel.app/
 
 - **Modern Framework**: Utilizing Next.js and custom React Hooks plus components to maximise efficiency and reusability.
 
-- **Blog articles**: Contentlayer manages and renders articles using Markdown.
+- **Blog articles**: Contentlayer manages and renders articles using Markdown language.
 
 - **Database**: Article View count is managed by Supabase, which is an open-source Postgres database.
 
-- **API**: Connected to the HeroTofu API to allow email contact by input form.
+- **API**: Connected to the HeroTofu API to provide email contact by input form.
 
 - **UI/UX**: Clean User interface stylized by Tailwind CSS. Light/Dark mode also enabled.
 
