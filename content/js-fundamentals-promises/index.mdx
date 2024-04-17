@@ -27,7 +27,7 @@ One of the main benefits of Promises is that we no longer need to rely on events
 
 **Create a Promise**:
 
-To create a Promise object, we use the Promise() constructor.
+To create a Promise object, we use the `Promise()` constructor.
 
 ```js
 let promise = new Promise(function(resolve, reject)) {
@@ -55,7 +55,7 @@ let countValue = new Promise(function (resolve, reject) {
 
 Promises are useful when you have to handle multiple asynchronous tasks, one after another.
 
-You can peform and operation after a Promise is resolved using methods: then(), catch() and finally().
+You can peform an operation after a Promise is resolved using methods: `then()`, `catch()` and `finally()`.
 
 ```js
 let promise = new Promise(function(resolve, reject)) {
@@ -67,9 +67,9 @@ let promise = new Promise(function(resolve, reject)) {
 
 **then() method**:
 
-The then() method is used with the callback when the promise is either successfully _fulfilled_ or _resolved_.
+The `then()` method is used with the callback when the promise is either successfully _fulfilled_ or _resolved_.
 
-You can chain multiple then() methods with the promise.
+You can chain multiple `then()` methods with the promise.
 
 ```js
 // return a promise
@@ -91,7 +91,7 @@ countValue
 
 **catch() method**:
 
-The catch() method is used with the callback when the promise is _rejected_ or if an error happens.
+The `catch()` method is used with the callback when the promise is _rejected_ or if an error happens.
 
 ```js
 // return a promise
@@ -118,9 +118,9 @@ countValue
 
 **finally() method**:
 
-The finally() method is executed when the promise is either successfully _resolved_ or _rejected_.
+The `finally()` method is executed when the promise is either successfully _resolved_ or _rejected_.
 
-You can chain multiple then() methods with the promise.
+You can chain multiple `then()` methods with the promise.
 
 ```js
 // return a promise
@@ -136,7 +136,7 @@ countValue.finally(function hello() {
 
 ---
 
-**Promises vs. Callback**:
+## Promises vs. Callback:
 
 _Promises_
 
@@ -163,7 +163,7 @@ _Callbacks_
 
 1. Difficult to follow syntax.
 2. Error handling could be difficult to manage.
-3. May lead to the dreaded _callback hell_
+3. May lead to the dreaded _callback hell_ (a callback is called insider another callback, and so on).
 
 ```js
 api(function (result) {
