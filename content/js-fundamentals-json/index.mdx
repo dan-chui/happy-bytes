@@ -1,0 +1,110 @@
+---
+title: 'JavaScript Fundamentals: JSON'
+description: 'JSON Basics'
+image: '../../public/blogs/14.webp'
+publishedAt: '2024-05-02'
+updatedAt: '2024-05-02'
+author: 'Dan Chui'
+isPublished: true
+tags:
+  - javascript
+  - web development
+---
+
+Do you know, JSON? (the text format, not the person 😉)
+
+## Background
+
+> JSON (JavaScript Object Notation) is
+> a lightweight data interchange format
+> used for storing and transporting
+> data.
+
+It is often used when data is sent from
+a server to a web page.
+
+JSON is language-independent, self-describing, and easy to understand.
+
+---
+
+## Syntax
+
+- JSON data consists of name/value
+  pairs, similar to JavaScript object
+  properties.
+
+- A name/value pair includes a field
+  name (in double quotes), followed by
+  a colon and the corresponding value.
+
+- Unlike JavaScript, JSON names
+  require double quotes.
+
+---
+
+## Objects
+
+- JSON objects are enclosed in curly
+  braces `{}`
+
+- Objects can contain multiple
+  name/value pairs.
+
+```js
+{
+  "firstName": "Dan",
+  "lastName": "Chui",
+}
+
+```
+
+---
+
+## Arrays
+
+- JSON arrays are enclosed in square
+  brackets `[]`
+
+- An array can contain objects.
+
+```js
+{
+  "staff": [
+    {
+      "firstName": "Dan",
+      "lastName": "Chui",
+    },
+        {
+      "firstName": "Henry",
+      "lastName": "Cavill",
+    },
+        {
+      "firstName": "Michael",
+      "lastName": "Jordan",
+    }
+  ]
+}
+```
+
+---
+
+## Converting JSON
+
+- To convert a JSON string to a JavaScript object, use
+  JSON.parse()
+
+```js
+let jsonString = '{ "name": "Dan", "country": Japan}';
+let jsonObject = JSON.parse(jsonString);
+console.log(jsonObject.name); // Output: "Dan"
+console.log(jsonObject.country); // Output: "Japan"
+```
+
+To convert a JavaScript object to JSON format, use
+JSON.stringify()
+
+```js
+let jsonData = '{ "name": "Dan", "id": 1}';
+let jsonStr = JSON.stringify(jsonData);
+console.log(jsonStr); // Output: "{\"name\":\"Dan\",\"id\":1}"
+```
