@@ -5,8 +5,7 @@ const AboutCoverSection = () => {
     <section className="w-full border-b-2 border-solid border-dark dark:border-light flex flex-col items-center justify-center text-dark dark:text-light">
       <div className="w-full xl:w-3/4 flex flex-col text-left items-start justify-center px-5 xs:p-10 pb-10 lg:px-16">
         <h2 className="font-bold capitalize text-3xl xs:text-4xl sxl:text-5xl  text-center lg:text-left mb-4">
-          “Keep your eyes on the stars, and your feet on the ground.” ―Theodore
-          Roosevelt
+          “Simplicity is the ultimate sophistication.” ― Leonardo da Vinci
         </h2>
         <p className="font-medium mt-4 text-base">
           <span>
@@ -17,7 +16,7 @@ const AboutCoverSection = () => {
             </p>
             <br></br>
             <p>
-              Since then, I have focused on JavaScript and building interactive
+              Ever since, I have focused on JavaScript and building interactive
               and responsive web applications. I am excited to contribute to the
               dynamic world of web development, push boundaries, and embrace new
               challenges.
