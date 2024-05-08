@@ -6,6 +6,8 @@ import { CodeSquareIcon, GitHubIcon, LinkedInIcon } from '../Icons';
 import siteMetadata from '@/src/utils/siteMetaData';
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   const {
     register,
     handleSubmit,
@@ -19,7 +21,7 @@ const Footer = () => {
         Stories | Updates | Guides
       </h3>
       <p className="mt-5 px-4 text-center w-full sm:w-3/5 font-light dark:font-medium text-sm sm:text-base">
-        Let's keep in touch! © Dan Chui. All rights reserved.
+        Let's keep in touch! &copy; {year} Dan Chui - All rights reserved.
       </p>
 
       <form
