@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import Logo from './Logo';
-import Link from 'next/link';
+import Logo from "./Logo";
+import Link from "next/link";
 import {
-  CodeSquareIcon,
+  // CodeSquareIcon,
   GitHubIcon,
   LinkedInIcon,
   MoonIcon,
   SunIcon,
-} from '../Icons';
-import siteMetadata from '@/src/utils/siteMetaData';
-import { useThemeSwitch } from '../Hooks/useThemeSwitch';
-import React, { useState } from 'react';
-import { cx } from '@/src/utils';
+} from "../Icons";
+import siteMetadata from "@/src/utils/siteMetaData";
+import { useThemeSwitch } from "../Hooks/useThemeSwitch";
+import React, { useState } from "react";
+import { cx } from "@/src/utils";
 
 const Header = () => {
   const [mode, setMode] = useThemeSwitch();
@@ -37,8 +37,8 @@ const Header = () => {
               className="absolute top-0 inline-block w-full h-0.5 bg-dark dark:bg-light rounded transition-all ease duration-200"
               style={{
                 transform: click
-                  ? 'rotate(-45deg) translateY(0)'
-                  : 'rotate(0deg) translateY(6px)',
+                  ? "rotate(-45deg) translateY(0)"
+                  : "rotate(0deg) translateY(6px)",
               }}
             >
               &nbsp;
@@ -55,8 +55,8 @@ const Header = () => {
               className="absolute top-0 inline-block w-full h-0.5 bg-dark dark:bg-light rounded transition-all ease duration-200"
               style={{
                 transform: click
-                  ? 'rotate(45deg) translateY(0)'
-                  : 'rotate(0deg) translateY(-6px)',
+                  ? "rotate(45deg) translateY(0)"
+                  : "rotate(0deg) translateY(-6px)",
               }}
             >
               &nbsp;
@@ -71,7 +71,7 @@ const Header = () => {
         transition-all ease duration-300
         "
         style={{
-          top: click ? '1rem' : '-5rem',
+          top: click ? "1rem" : "-5rem",
         }}
       >
         <Link href="/" className="mr-2">
@@ -84,17 +84,17 @@ const Header = () => {
           Contact
         </Link>
         <button
-          onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+          onClick={() => setMode(mode === "light" ? "dark" : "light")}
           className={cx(
-            'w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1',
-            mode === 'light' ? 'bg-dark text-light' : 'bg-light text-dark'
+            "w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1",
+            mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
           )}
           aria-label="theme-switcher"
         >
-          {mode === 'light' ? (
-            <MoonIcon className={'fill-dark'} />
+          {mode === "light" ? (
+            <MoonIcon className={"fill-dark"} />
           ) : (
-            <SunIcon className={'fill-dark'} />
+            <SunIcon className={"fill-dark"} />
           )}
         </button>
       </nav>
@@ -113,23 +113,23 @@ const Header = () => {
           Contact
         </Link>
         <button
-          onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+          onClick={() => setMode(mode === "light" ? "dark" : "light")}
           className={cx(
-            'w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1',
-            mode === 'light' ? 'bg-dark text-light' : 'bg-light text-dark'
+            "w-6 h-6 ease ml-2 flex items-center justify-center rounded-full p-1",
+            mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
           )}
           aria-label="theme-switcher"
         >
-          {mode === 'light' ? (
-            <MoonIcon className={'fill-dark'} />
+          {mode === "light" ? (
+            <MoonIcon className={"fill-dark"} />
           ) : (
-            <SunIcon className={'fill-dark'} />
+            <SunIcon className={"fill-dark"} />
           )}
         </button>
       </nav>
 
       <div className=" hidden sm:flex items-center">
-        <a
+        {/* <a
           href={siteMetadata.siteUrl}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
@@ -137,7 +137,7 @@ const Header = () => {
           aria-label="Visit my Portfolio"
         >
           <CodeSquareIcon className="hover:scale-125 transition-all duration-200 dark:fill-light" />
-        </a>
+        </a> */}
         <a
           href={siteMetadata.linkedin}
           target="_blank"

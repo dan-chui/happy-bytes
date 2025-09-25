@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { CodeSquareIcon, GitHubIcon, LinkedInIcon } from '../Icons';
-import siteMetadata from '@/src/utils/siteMetaData';
+import React from "react";
+import { useForm } from "react-hook-form";
+import { GitHubIcon, LinkedInIcon } from "../Icons";
+import siteMetadata from "@/src/utils/siteMetaData";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -31,7 +31,7 @@ const Footer = () => {
         <input
           type="email"
           placeholder="Email"
-          {...register('Email', { required: true, pattern: /^\S+@\S+$/i })}
+          {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
           className="w-full bg-transparent pl-2 sm:pl-0 text-dark focus:border-dark focus:ring-0 border-0 border-b mr-2 pb-1  text-base xs:text-sm xxs:text-xs"
         />
 
@@ -42,14 +42,14 @@ const Footer = () => {
       </form>
 
       <div className="flex items-center my-6 ml-6">
-        <a
+        {/* <a
           href={siteMetadata.siteUrl}
           target="_blank"
           className="inline-block w-7 h-7 mr-4"
           title="Portfolio"
         >
           <CodeSquareIcon className="hover:scale-125 transition-all duration-200 dark:fill-light" />
-        </a>
+        </a> */}
         <a
           href={siteMetadata.linkedin}
           target="_blank"
