@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const AboutCoverSection = () => {
   return (
@@ -10,9 +10,14 @@ const AboutCoverSection = () => {
         <p className="font-medium mt-4 text-base">
           <span>
             <p>
-              Hi there - thanks for stopping by! I'm a Web Developer based in
-              Tokyo, Japan. From a young age, I have carried a passion for
-              technology, and I discovered coding more recently.
+              Hi, I'm Dan! This blog started out as a place to share my journey
+              in web development, but lately I have been diving head-first into
+              the world of cybersecurity. Here you will find my notes, lessons
+              learned, and little discoveries along the way as I explore
+              everything from risk and compliance to hands-on security tools.
+              Think of it as a mix of study journal and personal
+              reflections—written to help me learn, and hopefully to help anyone
+              else starting out, too.
             </p>
             <br></br>
             <p>
@@ -23,20 +28,20 @@ const AboutCoverSection = () => {
             </p>
 
             <br></br>
-            <p>
-              Please take some time to check out my{' '}
+            {/* <p>
+              Please take some time to check out my{" "}
               <strong className="text-xl underline">
                 <a href="https://www.danchui.dev/" target="_blank">
-                  {' '}
+                  {" "}
                   Portfolio Website
                 </a>
-              </strong>{' '}
+              </strong>{" "}
               to view my latest projects as well.
             </p>
-            <br></br>
+            <br></br> */}
             <p>
               If you like what you find, feel free to connect with me using the
-              links provided!
+              provided links!
             </p>
           </span>
         </p>
