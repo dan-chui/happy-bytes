@@ -1,10 +1,10 @@
 ---
-title: 'JavaScript Fundamentals: Functions'
-description: '6 Function Types'
-image: '../../public/blogs/3.webp'
-publishedAt: '2024-03-03'
-updatedAt: '2024-03-03'
-author: 'Dan Chui'
+title: "JavaScript Fundamentals: Functions"
+description: "6 Function Types"
+image: "../../public/blogs/5.webp"
+publishedAt: "2024-03-03"
+updatedAt: "2024-03-03"
+author: "Dan Chui"
 isPublished: true
 tags:
   - javascript
@@ -19,7 +19,7 @@ _**Named Functions**_ - The traditional method.
 
 ```js
 function myFunction() {
-  console.log('Hello World!');
+  console.log("Hello World!");
 }
 
 myFunction();
@@ -34,7 +34,7 @@ let greeting = function (name) {
   console.log(`Hello ${name}`);
 };
 
-greeting('Dan');
+greeting("Dan");
 // Output: Hello Dan
 ```
 
@@ -43,7 +43,7 @@ greeting('Dan');
 _**Arrow Functions**_ - Introduced in the ES6 JS update, allows shorter syntax and one-line functions.
 
 ```js
-let greeting = () => console.log('Hello');
+let greeting = () => console.log("Hello");
 
 greeting();
 // Output: Hello
@@ -55,7 +55,7 @@ _**IIFE Functions**_ - Immediately Invoked Function Expressions (IIFE), are imme
 
 ```js
 (function () {
-  let string = 'Hi there!';
+  let string = "Hi there!";
   console.log(string);
 })();
 // Immediately Invoked Output: Hi there!
@@ -83,7 +83,7 @@ function Person(name, country) {
   this.country = country;
 }
 
-let user1 = new Person('Dan', 'Japan');
+let user1 = new Person("Dan", "Japan");
 
 console.log(
   `Hello there! I'm ${user1.name}, and I'm located in ${user1.country}!`

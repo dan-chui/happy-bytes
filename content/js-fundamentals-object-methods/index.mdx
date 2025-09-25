@@ -1,10 +1,10 @@
 ---
-title: 'JavaScript Fundamentals: Object Methods'
-description: 'Basics of Object Methods'
-image: '../../public/blogs/6.webp'
-publishedAt: '2024-03-06'
-updatedAt: '2024-03-06'
-author: 'Dan Chui'
+title: "JavaScript Fundamentals: Object Methods"
+description: "Basics of Object Methods"
+image: "../../public/blogs/8.webp"
+publishedAt: "2024-03-06"
+updatedAt: "2024-03-06"
+author: "Dan Chui"
 isPublished: true
 tags:
   - javascript
@@ -22,7 +22,7 @@ This method retrieves all the names of enumerable properties from an object.
 It is very useful for situations when it is necessary to iterate over properties, or for when you want an overview of an object's structure.
 
 ```js
-const car = { brand: 'Toyota', model: 'Yaris' };
+const car = { brand: "Toyota", model: "Yaris" };
 console.log(Object.keys(car));
 // Output: ['brand', 'model']
 ```
@@ -36,7 +36,7 @@ _values_ is similar to _Object.keys()_, but returns the actual values instead of
 This is useful when you want the stored data as opposed to the property name.
 
 ```js
-const car = { brand: 'Toyota', model: 'Yaris' };
+const car = { brand: "Toyota", model: "Yaris" };
 console.log(Object.values(car));
 // Output: ['Toyota', 'Yaris']
 ```
@@ -52,7 +52,7 @@ Each pair is represented by an array, and consists of a property name plus its c
 It is particularly useful when working with functions that expect _key-value_ pairs.
 
 ```js
-const car = { brand: 'Toyota', model: 'Yaris' };
+const car = { brand: "Toyota", model: "Yaris" };
 console.log(Object.entries(car));
 // Output: [['brand', 'Toyota',] ['model', 'Yaris']]
 ```
@@ -66,8 +66,8 @@ This method can copy values from one or multiple source objects to a target obje
 This is beneficial if you need to either merge objects, or create copies with additional properties.
 
 ```js
-const car = { brand: 'Toyota', model: 'Yaris' };
-const color = { color: 'blue' };
+const car = { brand: "Toyota", model: "Yaris" };
+const color = { color: "blue" };
 const carWithColor = Object.assign(car, color);
 
 console.log(carWithColor);
@@ -81,7 +81,7 @@ _**freeze**_
 When the _freeze_ method is used, you cannot add, delete, or modify any of its properties. This is important if you want to ensure data integrity, and prevent additional manipulation.
 
 ```js
-const car = { brand: 'Toyota', model: 'Yaris' };
+const car = { brand: "Toyota", model: "Yaris" };
 car.year = 2024;
 // Output: Error
 ```
@@ -93,7 +93,7 @@ _**is**_
 This checks if 2 values are the same, including positive and negative zero-value.
 
 ```js
-console.log(Object.is('hello', 'hello')); // Output: true
+console.log(Object.is("hello", "hello")); // Output: true
 console.log(Object.is(NaN, NaN));
 // Output: true
 // NaN === NaN will return false
@@ -108,8 +108,8 @@ This is an advanced tool for adding new properties, or modify existing propertie
 You can set characteristics, including: enumerability, writability, and configurability for the property. As such, this method offers highly detailed control over a property.
 
 ```js
-const car = { brand: 'Toyota', model: 'Yaris' };
-Object.defineProperty(car, 'year', { value: 2024, writable: false });
+const car = { brand: "Toyota", model: "Yaris" };
+Object.defineProperty(car, "year", { value: 2024, writable: false });
 console.log(car.year);
 // Output: 2024
 ```

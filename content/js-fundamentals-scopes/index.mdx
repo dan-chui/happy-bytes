@@ -1,10 +1,10 @@
 ---
-title: 'JavaScript Advanced: Scopes & Type Coercion'
-description: 'A breakdown of Scopes & Type Coercion'
-image: '../../public/blogs/12.webp'
-publishedAt: '2024-03-12'
-updatedAt: '2024-03-12'
-author: 'Dan Chui'
+title: "JavaScript Advanced: Scopes & Type Coercion"
+description: "A breakdown of Scopes & Type Coercion"
+image: "../../public/blogs/10.webp"
+publishedAt: "2024-03-12"
+updatedAt: "2024-03-12"
+author: "Dan Chui"
 isPublished: true
 tags:
   - javascript
@@ -31,7 +31,7 @@ _Global_ scope:
 2. Variables declared in _Global_ scope are accessible everywhere.
 
 ```js
-const name = 'Dan';
+const name = "Dan";
 const human = true;
 ```
 
@@ -42,7 +42,7 @@ _Function_ scope:
 
 ```js
 function localScope() {
-  const localVariable = 'Local';
+  const localVariable = "Local";
   console.log(localVariable); // Accesses localVariable
 }
 
@@ -58,7 +58,7 @@ _Block_ scope:
 
 ```js
 function localScope() {
-  const localVariable = 'Local';
+  const localVariable = "Local";
   console.log(localVariable);
 }
 
@@ -79,7 +79,7 @@ Type coercion is the process of converting one type of value into another. There
 3. to `number`
 
 ```js
-let string = '1';
+let string = "1";
 let number = 1;
 number == string; // Output: true
 
@@ -92,7 +92,7 @@ number == string; // Output: true
 _Strict equals_: The triple equals (===) or strict equality compares two values without type coercion. If the values are not the same type, then the values are not equal.
 
 ```js
-let string = '1';
+let string = "1";
 let number = 1;
 number === string; // Output: false
 ```

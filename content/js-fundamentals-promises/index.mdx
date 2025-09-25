@@ -1,10 +1,10 @@
 ---
-title: 'JavaScript Fundamentals: Promises'
-description: 'Basics of JS Promises'
-image: '../../public/blogs/4.webp'
-publishedAt: '2024-03-04'
-updatedAt: '2024-03-04'
-author: 'Dan Chui'
+title: "JavaScript Fundamentals: Promises"
+description: "Basics of JS Promises"
+image: "../../public/blogs/9.webp"
+publishedAt: "2024-03-04"
+updatedAt: "2024-03-04"
+author: "Dan Chui"
 isPublished: true
 tags:
   - javascript
@@ -42,9 +42,9 @@ const count = true;
 
 let countValue = new Promise(function (resolve, reject) {
   if (count) {
-    resolve('There is a count value.');
+    resolve("There is a count value.");
   } else {
-    reject('There is no count value.');
+    reject("There is no count value.");
   }
 });
 ```
@@ -74,7 +74,7 @@ You can chain multiple `then()` methods with the promise.
 ```js
 // return a promise
 let countValue = new Promise(function (resolve, reject) {
-  resolve('Promise was resolved.');
+  resolve("Promise was resolved.");
 });
 
 //executes when promise is resolved successfully
@@ -83,7 +83,7 @@ countValue
     console.log(result);
   })
   .then(function successValue2() {
-    console.log('You can call multiple functions using this.');
+    console.log("You can call multiple functions using this.");
   });
 ```
 
@@ -96,7 +96,7 @@ The `catch()` method is used with the callback when the promise is _rejected_ or
 ```js
 // return a promise
 let countValue = new Promise(function (resolve, reject) {
-  reject('Promise was rejected.');
+  reject("Promise was rejected.");
 });
 
 //executes when promise is resolved successfully
@@ -125,12 +125,12 @@ You can chain multiple `then()` methods with the promise.
 ```js
 // return a promise
 let countValue = new Promise(function (resolve, reject) {
-  resolve('Promise resolved.');
+  resolve("Promise resolved.");
 });
 
 // add other blocks of code
 countValue.finally(function hello() {
-  console.log('This code was executed.');
+  console.log("This code was executed.");
 });
 ```
 

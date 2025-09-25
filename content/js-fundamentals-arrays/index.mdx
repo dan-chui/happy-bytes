@@ -1,10 +1,10 @@
 ---
-title: 'JavaScript Fundamentals: Arrays'
-description: 'Basics of JS Arrays'
-image: '../../public/blogs/9.webp'
-publishedAt: '2024-03-09'
-updatedAt: '2024-03-09'
-author: 'Dan Chui'
+title: "JavaScript Fundamentals: Arrays"
+description: "Basics of JS Arrays"
+image: "../../public/blogs/1.webp"
+publishedAt: "2024-03-09"
+updatedAt: "2024-03-09"
+author: "Dan Chui"
 isPublished: true
 tags:
   - javascript
@@ -32,7 +32,7 @@ We can access elements within an array by rerferring to its _index number_. It i
 `[0]` refers to the 1st element in an index. `[1]` refers to the 2nd, and so on.
 
 ```js
-const cars = ['Toyota', 'Honda', 'Nissan'];
+const cars = ["Toyota", "Honda", "Nissan"];
 let car = cars[0];
 // Will refer to "Toyota"
 ```
@@ -64,24 +64,24 @@ This is a cheat sheet for the most common and useful Array methods:
 `.push()` adds a new element to an array (at the end).
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
-colors.push('White');
+const colors = ["Blue", "Red", "Green", "Black"];
+colors.push("White");
 console.log(colors); // Output: ['Blue', 'Red', 'Green', 'Black', 'White']
 ```
 
 `.unshift()` adds a new element to an array (at the beginning), and "unshifts" older elements.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
-colors.unshift('White');
+const colors = ["Blue", "Red", "Green", "Black"];
+colors.unshift("White");
 console.log(colors); // Output: ['White', 'Blue', 'Red', 'Green', 'Black']
 ```
 
 `.splice()` can be used to add new items to an array.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
-colors.splice(2, 0, 'White', 'Orange');
+const colors = ["Blue", "Red", "Green", "Black"];
+colors.splice(2, 0, "White", "Orange");
 console.log(colors); // Output: ['Blue', 'Red', 'White', 'Orange', 'Green', 'Black']
 ```
 
@@ -98,7 +98,7 @@ The rest of the parameters ("White" , "Orange" - in this example) define the new
 `.pop()`, removes the last element from an array.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
+const colors = ["Blue", "Red", "Green", "Black"];
 colors.pop();
 console.log(colors); // Output: ['Blue', 'Red', 'Green']
 ```
@@ -106,7 +106,7 @@ console.log(colors); // Output: ['Blue', 'Red', 'Green']
 `.shift()`, removes the first array element and "shifts" all other elements to a lower index.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
+const colors = ["Blue", "Red", "Green", "Black"];
 colors.shift();
 console.log(colors); // Output: ['Red', 'Green', 'Black']
 ```
@@ -114,7 +114,7 @@ console.log(colors); // Output: ['Red', 'Green', 'Black']
 `.splice()`, can also be used to remove items from an array.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
+const colors = ["Blue", "Red", "Green", "Black"];
 colors.splice(0, 1);
 console.log(colors); // Output: ['Red', 'Green', 'Black']
 ```
@@ -156,7 +156,7 @@ console.log(result); // Output: 33,47,65
 `.slice()` selects a part of an array, and returns the new array (up to a _not inclusive_ given end). It also does not change the original array.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
+const colors = ["Blue", "Red", "Green", "Black"];
 const primary = colors.slice(0, 3);
 console.log(primary); // Output: ['Blue', 'Red', 'Green']
 ```
@@ -164,8 +164,8 @@ console.log(primary); // Output: ['Blue', 'Red', 'Green']
 `.concat()` concatenates (joins together) two or more arrays. It returns a new array that contains the joined arrays, and does not change the existing arrays.
 
 ```js
-const array1 = ['Dan', 'Bill', 'Sally'];
-const array2 = ['Alice', 'Chris'];
+const array1 = ["Dan", "Bill", "Sally"];
+const array2 = ["Alice", "Chris"];
 const workers = array1.concat(array2);
 console.log(workers); // Output: Dan,Bill,Sally,Alice,Chris
 ```
@@ -196,8 +196,8 @@ console.log(newArray); // Output: 2,4,6,8,10
 `.indexOf()` searches the array for an element and returns its position. It returns -1 if the value is not found. The _indexOf()_ method starts at a specified index and searches from left to right (from the given start postion to the end of the array). By default, the search starts at the first element and ends at the last. Negative start values counts from the last element (but still searches from left to right).
 
 ```js
-const fruits = ['Apple', 'Banana', 'Melon', 'Peach'];
-let index = fruits.indexOf('Banana');
+const fruits = ["Apple", "Banana", "Melon", "Peach"];
+let index = fruits.indexOf("Banana");
 console.log(index); // Output: 1
 ```
 
@@ -228,7 +228,7 @@ function checkAge(age) {
 }
 
 function myFunction() {
-  document.getElementById('demo').innerHTML = ages.find(checkAge);
+  document.getElementById("demo").innerHTML = ages.find(checkAge);
 }
 // Output: 21,36
 ```
@@ -241,8 +241,8 @@ function myFunction() {
 It is almost identical to `toString()`, but `join()` can specify using a separator.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
-document.getElementById('demo').innerHTML = colors.join(' + ');
+const colors = ["Blue", "Red", "Green", "Black"];
+document.getElementById("demo").innerHTML = colors.join(" + ");
 // Output: Blue + Red + Green + Black
 ```
 
@@ -291,7 +291,7 @@ function checkAdult(age) {
 
 ```js
 const numbers = [200, 100, 50];
-document.getElementById('demo').innerHTML = numbers.reduce(myFunction);
+document.getElementById("demo").innerHTML = numbers.reduce(myFunction);
 
 function myFunction(total, num) {
   return total - num;
@@ -306,7 +306,7 @@ function myFunction(total, num) {
 `.forEach()` will call a function for each array element, and does not execute the function for empty array elements
 
 ```js
-const cars = ['Toyota', 'Honda', 'Nissan'];
+const cars = ["Toyota", "Honda", "Nissan"];
 fruits.forEach(myFunction);
 // Output:
 //    0:Toyota
@@ -321,7 +321,7 @@ fruits.forEach(myFunction);
 `.length` returns the length (size) of an array.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
+const colors = ["Blue", "Red", "Green", "Black"];
 let size = colors.length;
 console.log(size); // Output: 4
 ```
@@ -331,7 +331,7 @@ console.log(size); // Output: 4
 `.toString()` converts an array to a string, and returns the result with array values separated by commas. It does not change the original array.
 
 ```js
-const fruits = ['Apple', 'Banana', 'Melon', 'Peach'];
+const fruits = ["Apple", "Banana", "Melon", "Peach"];
 let text = fruits.toString();
 // Output: Apple,Banana,Melon,Peach
 ```
@@ -341,7 +341,7 @@ let text = fruits.toString();
 `.at()` returns an indexed element from an array. `[]` returns the same result. However, it is important to note that `[]` is used in JavaScript to access both arrays and objects. The introduction of the `at()` method allows access to the last property of the object.
 
 ```js
-const colors = ['Blue', 'Red', 'Green', 'Black'];
+const colors = ["Blue", "Red", "Green", "Black"];
 let color = colors.at(2);
 // Output: Green
 ```
