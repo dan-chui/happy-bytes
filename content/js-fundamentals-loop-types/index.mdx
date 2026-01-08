@@ -1,10 +1,10 @@
 ---
-title: 'JavaScript Fundamentals: Loop Types'
-description: 'Basics of JS Loop Types'
-image: '../../public/blogs/7.webp'
-publishedAt: '2024-03-07'
-updatedAt: '2024-03-07'
-author: 'Dan Chui'
+title: "JavaScript Fundamentals: Loop Types"
+description: "Basics of JS Loop Types"
+image: "../../public/blogs/article_images/7.webp"
+publishedAt: "2024-03-07"
+updatedAt: "2024-03-07"
+author: "Dan Chui"
 isPublished: true
 tags:
   - javascript
@@ -24,7 +24,7 @@ for (initialExpression; condition; updateExpression) {
 ```
 
 ```js
-const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+const cars = ["Toyota", "Nissan", "Mitsubishi"];
 
 for (let i = 0; i < cars.length; i++) {
   console.log(cars[i]);
@@ -42,7 +42,7 @@ while (condition) {
 ```
 
 ```js
-const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+const cars = ["Toyota", "Nissan", "Mitsubishi"];
 
 let i = 0;
 
@@ -63,7 +63,7 @@ do {
 ```
 
 ```js
-const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+const cars = ["Toyota", "Nissan", "Mitsubishi"];
 
 let i = 0;
 
@@ -82,7 +82,7 @@ array.forEach(function(currentValue, index, arr));
 ```
 
 ```js
-const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+const cars = ["Toyota", "Nissan", "Mitsubishi"];
 
 cars.forEach((element) => {
   console.log(element);
@@ -98,7 +98,7 @@ array.map(function(currentValue, index, arr), thisValue);
 ```
 
 ```js
-const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+const cars = ["Toyota", "Nissan", "Mitsubishi"];
 
 const newCars = cars.map((e) => {
   return e.toUpperCase();
@@ -116,7 +116,7 @@ for (element of iterable) {
 ```
 
 ```js
-const cars = ['Toyota', 'Nissan', 'Mitsubishi'];
+const cars = ["Toyota", "Nissan", "Mitsubishi"];
 
 for (let element of cars) {
   console.log(element);
@@ -134,7 +134,7 @@ for (key in object) {
 ```
 
 ```js
-const cars = { 1: 'Toyota', 2: 'Nissan', 3: 'Mitsubishi' };
+const cars = { 1: "Toyota", 2: "Nissan", 3: "Mitsubishi" };
 
 for (let key in cars) {
   console.log(cars[key]);
