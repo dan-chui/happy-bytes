@@ -46,7 +46,7 @@ In this scenario, I analyzed **HTTP traffic** to identify exploitation attempts 
 This image shows the identified the start of a "Log4j" attack phase after filtering for parameters such as (ip contains "jndi") and (http.user_agent contains "$") among others.
 
 <Image
-  src="/blogs/labs/log4j_http_cleartext_02.webp"
+  src="/blogs/labs/siem_log/log4j_http_cleartext_02.webp"
   width="718"
   height="404"
   alt="Image"
@@ -94,7 +94,7 @@ In the second scenario, I investigated **potential data exfiltration over HTTP**
 The image below highlights using queries within Splunk to search for a potential attacker by large outbound POST requests.
 
 <Image
-  src="/blogs/labs/data_exfil_1.webp"
+  src="/blogs/labs/siem_log/data_exfil_1.webp"
   width="718"
   height="404"
   alt="Image"
@@ -104,7 +104,7 @@ The image below highlights using queries within Splunk to search for a potential
 This image shows the raw data of the identified suspicious packet within Wireshark. In the packet, we have much more details including credentials and notes.
 
 <Image
-  src="/blogs/labs/data_exfil_3.webp"
+  src="/blogs/labs/siem_log/data_exfil_3.webp"
   width="718"
   height="404"
   alt="Image"
@@ -146,7 +146,7 @@ Immediate investigation, host isolation if applicable, and outbound traffic cont
 
 - SIEM Log Analysis Report (PDF) Download ⬇️
   <a
-    href="/blogs/labs/SIEM_Log_Analysis_Report_Complete.pdf"
+    href="/blogs/labs/siem_log/SIEM_Log_Analysis_Report_Complete.pdf"
     target="_blank"
     rel="noopener"
     download
