@@ -1,38 +1,81 @@
 # Happy Bytes
 
 ## 💻 Project
-Welcome to **Happy Bytes**!
+Welcome to **Happy Bytes** 👋
 
-**Happy Bytes** is a Blog website built using the Next.js framework. The Blog is dedicated to sharing information and best practices of web development, especially JavaScript and modern JavaScript frameworks. Its purpose is to provide information in easy to understand language for all levels of Web Development users.
+**Happy Bytes** is a personal cybersecurity-focused blog built with **Next.js**, designed to document hands-on security learning, portfolio projects, and practical insights into modern cybersecurity practices.
 
-Credit to freeCodeCamp for their tutorial.
+The site serves as a technical journal and portfolio hub, covering topics such as:
+- SOC & Blue Team fundamentals  
+- SIEM log analysis and threat investigation  
+- Incident detection and response workflows  
+- Risk management & security governance concepts  
+- Learning notes from labs, certifications, and real-world simulations  
 
-Please visit (in a new tab): https://happy-bytes.vercel.app/
+The goal is to present cybersecurity concepts in a **clear, structured, and practical way**, bridging theory with hands-on experience.
+
+🔗 **Live site:**  
+https://happy-bytes.vercel.app/
+
+---
 
 ## 🚀 Technologies
 
-- Next.js
-- Contentlayer
-- Markdown blogs
-- React Hook form
-- Tailwind CSS
-- Supabase
-- HeroTofu API
-- Vercel
+- **Next.js** – React framework for performance and scalability  
+- **Contentlayer** – Content management for Markdown-based blogs  
+- **Markdown / MDX** – Technical writing and documentation  
+- **React Hook Form** – Contact and input handling  
+- **Tailwind CSS** – Clean, responsive UI with dark/light mode  
+- **HeroTofu API** – Email contact form integration  
+- **Vercel** – Deployment and hosting  
+
+---
 
 ## 💫 Features
 
-- **Modern Framework**: Utilizing Next.js and custom React Hooks plus components to maximise efficiency and reusability.
+- **Cybersecurity-Focused Content**  
+  Articles and project write-ups covering SOC workflows, SIEM analysis, threat detection, and security fundamentals.
 
-- **Blog articles**: Contentlayer manages and renders articles using Markdown language.
+- **Markdown-Driven Blog System**  
+  Contentlayer manages Markdown articles for a fast, developer-friendly publishing workflow.
 
-- **Database**: Article View count is managed by Supabase, which is an open-source Postgres database.
+- **Portfolio-Oriented Structure**  
+  Designed to support detailed project posts (e.g., SIEM Log Analysis reports, Incident Playbooks, Risk Registers).
 
-- **API**: Connected to the HeroTofu API to provide email contact by input form.
+- **Clean UI / UX**  
+  Minimalist design using Tailwind CSS with full Light/Dark mode support.
 
-- **UI/UX**: Clean User interface stylized by Tailwind CSS. Light/Dark mode also enabled.
+- **SEO Optimization**  
+  Optimized using Next Sitemap and structured JSON-LD schema for discoverability.
 
-- **SEO Optimization**: SEO optimized using Next Sitemap & Google's structured json-ld schema.
+- **Contact Integration**  
+  Secure contact form powered by the HeroTofu API.
+
+---
+
+## 🧭 Roadmap (Planned Enhancements)
+
+- Dedicated **Projects** section for SOC & GRC portfolio artifacts  
+- Improved tagging for security domains (SIEM, IR, GRC, Cloud, Blue Team)  
+- Optional case-study style layouts for reports and PDFs  
+- Expanded writing on certifications, labs, and learning paths  
+
+---
+
+## 📌 Notes
+
+- Supabase is **not currently in use** and has been removed from the active feature set.
+- The blog is continuously evolving alongside ongoing cybersecurity training and projects.
+
+---
+
+## 📬 Contact
+
+If you’d like to connect or discuss cybersecurity, feel free to reach out via the contact form on the site.
+
+---
+
+Built with curiosity, discipline, and a blue-team mindset 🔐
 
 ---
 
@@ -47,10 +90,6 @@ Please visit (in a new tab): https://happy-bytes.vercel.app/
 ![](/public/screenshot3.webp)
 
 ![](/public/screenshot4.webp)
-
-![](/public/screenshot5.webp)
-
-![](/public/screenshot6.webp)
 
 ---
 
