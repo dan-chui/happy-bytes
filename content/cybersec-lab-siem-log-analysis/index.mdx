@@ -1,0 +1,165 @@
+---
+title: "SIEM Log Analysis: Detecting Cleartext Traffic and HTTP-Based Data Exfiltration"
+description: "Simulated SOC investigation of data exfiltration over HTTP"
+image: "../../public/blogs/20.webp"
+publishedAt: "2026-01/08"
+updatedAt: "2026-01/08"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - siem
+  - soc
+  - log analysis
+  - wireshark
+  - splunk
+  - lab
+---
+
+## 🔍 Overview
+
+This project focuses on **hands-on SOC-style log analysis** using a simulated environment to investigate **two real-world attack scenarios**:
+
+1. **Log4j vulnerability exploitation via HTTP**
+2. **Data exfiltration over HTTP**
+
+The goal was not just detection, but **understanding attacker behavior**, correlating evidence across tools, and documenting findings in a clear, analyst-ready format.
+
+---
+
+## 🧪 Scenario 1: Log4j Vulnerability Analysis (HTTP)
+
+Log4Shell (CVE-2021-44228) remains one of the most impactful vulnerabilities in recent years.  
+In this scenario, I analyzed **HTTP traffic** to identify exploitation attempts leveraging **JNDI injection patterns**.
+
+### Tools Used
+
+- **Wireshark** – packet capture and protocol inspection
+- **CyberChef** – decoding and transforming obfuscated payloads
+
+### 📌 Key Observations
+
+- Suspicious `${jndi:ldap://}` strings embedded in HTTP headers
+- Encoded payloads requiring transformation before analysis
+- Clear indicators of remote lookup attempts
+
+This image shows the identified the start of a "Log4j" attack phase after filtering for parameters such as (ip contains "jndi") and (http.user_agent contains "$") among others.
+
+<Image
+  src="/blogs/labs/log4j_http_cleartext_02.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+### 🔥 Risk Assessment
+
+**Risk Level: Medium**
+
+**Assessment:**
+The observed HTTP traffic contained indicators consistent with **Log4j (Log4Shell) exploitation attempts**, including JNDI lookup patterns embedded in request headers. While no evidence of successful remote code execution was identified, the presence of these indicators suggests an active attempt to exploit a critical vulnerability.
+
+**Potential Impact:**
+If successful, Log4j exploitation could allow attackers to execute arbitrary code, leading to system compromise, lateral movement, and data exposure.
+
+**Risk Rationale:**
+
+- Exploitation attempt detected
+- No confirmed execution observed
+- High-impact vulnerability warrants proactive mitigation
+
+**Recommended Priority:**
+Patch verification, enhanced monitoring, and immediate alerting for similar patterns.
+
+---
+
+## 📤 Scenario 2: Data Exfiltration via HTTP
+
+In the second scenario, I investigated **potential data exfiltration over HTTP**, combining **packet-level analysis** with **SIEM correlation**.
+
+### Tools Used
+
+- **Splunk** – correlating events, timestamps, and source IPs
+- **Wireshark** – identifying abnormal HTTP POST behavior
+
+### 📌 Key Observations
+
+- Repeated outbound HTTP requests to uncommon destinations
+- Abnormal payload sizes inconsistent with normal browsing
+- Timeline reconstruction showing staged exfiltration behavior
+
+📊 This scenario highlights how **SIEM + network visibility** work together in a SOC environment.
+
+The image below highlights using queries within Splunk to search for a potential attacker by large outbound POST requests.
+
+<Image
+  src="/blogs/labs/data_exfil_1.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+This image shows the raw data of the identified suspicious packet within Wireshark. In the packet, we have much more details including credentials and notes.
+
+<Image
+  src="/blogs/labs/data_exfil_3.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+### 🔥 Risk Assessment
+
+**Risk Level: High**
+
+**Assessment:**
+Analysis identified **abnormal outbound HTTP traffic patterns**, including repeated POST requests with unusually large payloads sent to an external destination. These behaviors are consistent with **potential data exfiltration techniques**.
+
+**Potential Impact:**
+Successful data exfiltration could result in **loss of sensitive or proprietary information**, regulatory exposure, and reputational damage.
+
+**Risk Rationale:**
+
+- Repeated abnormal outbound traffic observed
+- Payload characteristics inconsistent with normal behavior
+- Indicators suggest possible successful data transfer
+
+**Recommended Priority:**
+Immediate investigation, host isolation if applicable, and outbound traffic controls.
+
+---
+
+## 🧩 Key Skills Demonstrated
+
+- Log ingestion and baseline analysis
+- Network traffic inspection (HTTP)
+- Threat detection & investigation workflow
+- Clear documentation and reporting
+- SOC-style remediation recommendations
+
+---
+
+## 📄 Final Deliverables
+
+- SIEM Log Analysis Report (PDF) Download ⬇️
+  <a
+    href="/blogs/labs/SIEM_Log_Analysis_Report_Complete.pdf"
+    target="_blank"
+    rel="noopener"
+    download
+  >
+    SIEM Log Analysis Report (PDF)
+  </a>
+- Detection queries and investigation notes
+- Anonymized log samples
+
+🔗 Full report and supporting files available on GitHub.
+
+---
+
+_This analysis was conducted in a simulated SOC lab environment using anonymized data adapted from a TryHackMe training exercise for educational and portfolio purposes._
+
+_Feel free to reach out with questions or thoughts._
