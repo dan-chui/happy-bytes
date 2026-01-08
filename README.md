@@ -5,6 +5,8 @@ Welcome to **Happy Bytes**!
 
 **Happy Bytes** is a Blog website built using the Next.js framework. The Blog is dedicated to sharing information and best practices of web development, especially JavaScript and modern JavaScript frameworks. Its purpose is to provide information in easy to understand language for all levels of Web Development users.
 
+Credit to freeCodeCamp for their tutorial.
+
 Please visit (in a new tab): https://happy-bytes.vercel.app/
 
 ## 🚀 Technologies
