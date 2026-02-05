@@ -1,0 +1,190 @@
+---
+title: "Building an Incident Escalation Playbook – From Alerts to Action"
+description: "A Playbook to help triage security incidents"
+image: "../../public/blogs/article_images/22.webp"
+publishedAt: "2026-02/05"
+updatedAt: "2026-02/05"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - soc
+  - incident-response
+  - risk management
+---
+
+# Building an Incident Escalation Playbook – From Alerts to Action 🚨📘
+
+As part of my ongoing transition into IT and cybersecurity roles, I recently completed an **Incident Escalation Playbook** portfolio project.
+
+While many technical labs focus on tools and detection, this project focused on something equally important - **decision-making and communication inside real organizations**.
+
+In short:
+
+> Detecting an issue is only half the job.  
+> Knowing **who to tell, how fast, and what happens next** is the other half.
+
+---
+
+## Why an Incident Escalation Playbook? 🤔
+
+Security incidents rarely fail because of missing tools.  
+They often fail because of:
+
+- Unclear ownership
+- Slow escalation
+- Poor documentation
+- Confusion under pressure
+
+An Incident Escalation Playbook addresses these risks by providing a **structured and repeatable process** for handling alerts.
+
+This project complements my previous **SIEM Log Analysis** and **Risk Register** work by connecting:
+
+**Detection → Decision → Escalation → Improvement**
+
+---
+
+## Project Objectives 🎯
+
+The goal was to simulate the responsibilities of a **SOC Tier 1 Analyst** and design a realistic workflow that answers:
+
+- When is an alert a false positive?
+- How do we classify severity?
+- Who gets notified?
+- What evidence should be preserved?
+- How do we hand over properly?
+
+Rather than focusing on tools, the emphasis was on **judgment, clarity, and accountability**.
+
+---
+
+## Key Components of the Playbook 🧩
+
+### 1. Environment Definition 🏢
+
+A simulated mid-sized enterprise SOC was assumed to create realistic constraints and expectations.
+
+---
+
+### 2. Severity Classification 🔴🟠🟡
+
+Incidents were categorized into four levels:
+
+- **Low** – Informational / benign
+- **Medium** – Suspicious, requires review
+- **High** – Confirmed malicious activity
+- **Critical** – Business-impacting incident
+
+This classification drives response urgency and ownership.
+
+---
+
+### 3. Initial Triage Process 🔍
+
+The Tier 1 analyst workflow included:
+
+- Validating alert sources
+- Reviewing correlated logs
+- Identifying affected users or hosts
+- Checking for repeated patterns
+- Determining false positives
+
+The emphasis was on **thinking before escalating**.
+
+---
+
+### 4. Escalation Flowchart 🔁
+
+A simple visual flow was designed to keep decisions clear under pressure:
+
+**Alert → Validate → Classify Severity → Escalate Accordingly**
+
+Only **Critical** incidents trigger immediate executive-level notification, reinforcing realistic boundaries.
+
+<Image
+  src="/blogs/labs/incident_escalation_playbook/escalation_flowchart.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+---
+
+### 5. Escalation Matrix 📞
+
+Defined response expectations and service-level urgency:
+
+| Severity | Escalation Target      | SLA        |
+| -------- | ---------------------- | ---------- |
+| Medium   | Tier 2 Analyst         | 30 minutes |
+| High     | Incident Response Lead | 15 minutes |
+| Critical | IR + Management        | Immediate  |
+
+---
+
+### 6. Evidence Preservation & Handover 🗂️
+
+SOC Tier 1 analysts do not remediate - they **handover correctly**.  
+Key principles included:
+
+- Preserve logs
+- Avoid altering system state
+- Maintain timelines
+- Protect chain of custody
+
+---
+
+### 7. Documentation & Lessons Learned 📝
+
+Every incident closes with documentation and post-incident reflection, reinforcing operational maturity and continuous improvement.
+
+---
+
+## What This Project Demonstrates 💡
+
+This artifact is less about cybersecurity tools and more about **organizational readiness**. It highlights skills that apply broadly across IT and operations roles:
+
+- Structured decision-making
+- Clear communication
+- Process design
+- Risk awareness
+- Documentation discipline
+- Team collaboration
+
+These are transferable skills for:
+
+- SOC / Security Operations
+- IT Analyst roles
+- Operations & Support
+- Governance / Risk / Compliance
+- Systems & Incident Management
+
+---
+
+## Key Takeaway 🧠
+
+An effective incident response is not just about _finding threats_ -  
+it is about **moving information through the organization correctly and quickly**.
+
+This project reinforced that strong IT and security professionals are defined not only by technical skill, but by their ability to operate calmly, communicate clearly, and make sound decisions under uncertainty.
+
+---
+
+## What’s Next ▶️
+
+With this project completed alongside my **SIEM Log Analysis** and **Risk Register**, my portfolio now reflects a balanced mix of:
+
+- Technical investigation
+- Operational process
+- Risk and business context
+
+The next phase of my journey focuses on broadening into **general IT and operations roles**, while continuing to strengthen foundational skills in systems, monitoring, and incident management.
+
+---
+
+_Thanks for reading!_ 🙏
+
+_Feel free to reach out with questions or thoughts._
+
+---
