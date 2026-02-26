@@ -1,0 +1,180 @@
+---
+title: "MITRE ATT&CK vs The Cyber Kill Chain: Understanding Two Core Threat Models"
+description: "Understanding MITRE ATT%CK and the Cyber Kill Chain"
+image: "../../public/blogs/article_images/23.webp"
+publishedAt: "2026-02/26"
+updatedAt: "2026-02/26"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - soc
+  - threat intelligence
+  - adversary tactics
+  - risk management
+  - mitre att@ck
+  - cyber kill chain
+---
+
+# MITRE ATT&CK vs The Cyber Kill Chain: Understanding Two Core Threat Models
+
+If you’re studying for cybersecurity certifications or working toward a SOC role, you’ll eventually encounter two foundational concepts:
+
+- The **Cyber Kill Chain**
+- The **MITRE ATT&CK Framework**
+
+At first glance, they seem similar – both describe how attacks unfold. But they serve slightly different purposes and are used in different ways inside security teams.
+
+In this article, I’ll break down what each model is, how they differ, and why both are useful – especially for SOC and GRC professionals.
+
+---
+
+## 🔗 The Cyber Kill Chain
+
+The **Cyber Kill Chain**, developed by Lockheed Martin, describes the stages of a cyberattack from start to finish.
+
+The traditional 7 stages are:
+
+1. **Reconnaissance** – Attacker gathers information about the target
+2. **Weaponization** – Malicious payload is created
+3. **Delivery** – Malware is delivered (email, phishing, exploit, etc.)
+4. **Exploitation** – Vulnerability is exploited
+5. **Installation** – Malware installs on the victim system
+6. **Command & Control (C2)** – Attacker establishes remote control
+7. **Actions on Objectives** – Data theft, destruction, lateral movement
+
+### Why It Matters
+
+The Kill Chain is helpful because it introduces a simple but powerful idea:
+
+> If you can stop the attacker at any stage, you break the chain.
+
+For SOC analysts, this helps frame detection and response:
+
+- Detect phishing → stop at Delivery
+- Block exploit → stop at Exploitation
+- Detect unusual outbound traffic → stop at Command & Control
+
+The model is linear and easy to understand – which makes it useful for awareness training and executive discussions.
+
+---
+
+## 🎯 MITRE ATT&CK Framework
+
+The **MITRE ATT&CK** framework is more detailed and behavior-focused.
+
+Instead of describing a linear chain, ATT&CK organizes attacker activity into:
+
+- **Tactics** (the attacker’s objective)
+- **Techniques** (how they achieve that objective)
+- **Sub-techniques** (specific implementation details)
+
+Examples of tactics include:
+
+- Initial Access
+- Execution
+- Persistence
+- Privilege Escalation
+- Defense Evasion
+- Lateral Movement
+- Exfiltration
+
+Each tactic includes many mapped techniques, such as:
+
+- Phishing (Initial Access)
+- PowerShell execution (Execution)
+- Credential dumping (Credential Access)
+- Remote services for lateral movement
+
+### Why It Matters
+
+MITRE ATT&CK is widely used in modern SOC environments because it helps teams:
+
+- Map detections to specific attacker techniques
+- Identify coverage gaps in monitoring
+- Build detection engineering use cases
+- Structure threat hunting activities
+
+Unlike the Kill Chain, ATT&CK is not strictly linear. Attackers may move back and forth between tactics.
+
+---
+
+## 🔍 Key Differences
+
+| Cyber Kill Chain                | MITRE ATT&CK                                 |
+| ------------------------------- | -------------------------------------------- |
+| Linear model                    | Non-linear matrix                            |
+| High-level stages               | Detailed techniques & behaviors              |
+| Simple and conceptual           | Operational and detection-focused            |
+| Good for executive explanations | Used heavily in SOC tooling & threat hunting |
+
+---
+
+## 🛡️ How SOC Teams Use These Models
+
+In practice:
+
+- The **Kill Chain** helps teams think about disrupting attacks early.
+- **MITRE ATT&CK** helps teams build detections and measure defensive coverage.
+
+For example:
+
+- A SOC analyst might detect PowerShell abuse.
+- That maps to **Execution** in MITRE ATT&CK.
+- From a Kill Chain perspective, that could correspond to Exploitation or Installation.
+
+Together, the models provide both strategic and operational clarity.
+
+---
+
+## 🧩 Why GRC Professionals Should Care
+
+Even if you’re focused on governance and compliance, these frameworks are important.
+
+Risk assessments often ask:
+
+- What attack scenarios are realistic?
+- Where are we most vulnerable?
+- Do our controls cover high-risk techniques?
+
+MITRE ATT&CK can help map:
+
+- Controls → Techniques
+- Gaps → Specific attacker behaviors
+
+This strengthens ISO 27001 risk registers and improves control justification.
+
+---
+
+## 🧠 My Takeaway
+
+The Cyber Kill Chain gives you the **big-picture narrative** of how attacks unfold.  
+MITRE ATT&CK gives you the **detailed behavioral map** of how attackers operate.
+
+For someone pursuing both SOC and GRC paths, understanding both frameworks is incredibly valuable:
+
+- One improves your detection mindset.
+- The other improves your control and governance mindset.
+
+As I continue building out SOC lab projects and ISO 27001 risk documentation, I plan to reference MITRE ATT&CK more explicitly in detection mapping and risk analysis.
+
+---
+
+## 📌 Final Thoughts
+
+Cybersecurity frameworks are not just academic theory. They shape how real security teams detect, respond, and justify controls.
+
+If you’re early in your cybersecurity journey, I recommend:
+
+1. Learn the Cyber Kill Chain first (for conceptual clarity).
+2. Then explore MITRE ATT&CK (for operational depth).
+
+## Together, they form a strong mental model for understanding modern cyber defense.
+
+---
+
+_Thanks for reading!_ 🙏
+
+_Feel free to reach out with questions or thoughts._
+
+---
