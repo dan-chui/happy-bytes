@@ -1,0 +1,320 @@
+---
+title: "Threat Hunting with Microsoft Defender: Investigating Tor Browser Activity"
+description: "Investigating Tor Browser installation and network activity using Microsoft Defender XDR and KQL during a proactive threat hunting exercise"
+image: "../../public/blogs/article_images/25.webp"
+publishedAt: "2026-03/25"
+updatedAt: "2026-03/25"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - threat-hunting
+  - microsoft-defender
+  - kql
+  - soc-Analysis
+---
+
+## 🔎 Threat Hunting with Microsoft Defender: Investigating Tor Browser Activity
+
+Threat hunting is one of the most valuable skills for a security analyst. Rather than waiting for alerts, analysts proactively search for suspicious activity hidden in telemetry data.
+
+In this project, I conducted a **threat hunt using Microsoft Defender XDR Advanced Hunting** to investigate suspicious activity related to the **Tor Browser** on an endpoint.
+
+The investigation confirmed that Tor was downloaded, installed, and used on the system, with network connections established to Tor relay infrastructure.
+
+Let's walk through the investigation process step-by-step.
+
+---
+
+## 🎯 Investigation Overview
+
+| Field              | Value                  |
+| ------------------ | ---------------------- |
+| Investigation Type | Threat Hunt            |
+| Platform           | Microsoft Defender XDR |
+| Endpoint           | vm-hunt-tyo            |
+| User               | dan                    |
+| Detection Method   | KQL Log Analysis       |
+
+### Investigation Objective
+
+Identify whether the **Tor Browser** was installed or used on the endpoint and determine:
+
+- When Tor was downloaded
+- Whether it was executed
+- If network connections to Tor infrastructure occurred
+- What user artifacts were created during activity
+
+---
+
+## 🧠 Why Tor Activity Matters
+
+Tor itself is **not malicious**, but it is often associated with:
+
+🔐 Anonymous browsing  
+🕸 Dark web marketplace access  
+📤 Data exfiltration  
+🚫 Corporate security policy violations
+
+For security teams, Tor usage can be a **high-risk signal** depending on the environment.
+
+---
+
+## 🔍 Threat Hunting Methodology
+
+The investigation relied on **Microsoft Defender Advanced Hunting** and several telemetry tables:
+
+| Log Source          | Purpose                                |
+| ------------------- | -------------------------------------- |
+| DeviceFileEvents    | Detect Tor downloads and file creation |
+| DeviceProcessEvents | Detect installer execution             |
+| DeviceNetworkEvents | Identify Tor network connections       |
+
+The hunting workflow followed this sequence:
+
+1️⃣ Identify Tor-related file downloads  
+2️⃣ Confirm installer execution  
+3️⃣ Detect Tor process creation  
+4️⃣ Identify network connections to Tor infrastructure  
+5️⃣ Investigate user artifacts created during activity
+
+---
+
+## ⏱ Timeline of Events
+
+The investigation revealed the following timeline:
+
+| Time (UTC)        | Event                               |
+| ----------------- | ----------------------------------- |
+| 00:18:19          | Tor installer downloaded            |
+| 00:21:44          | Tor installer executed              |
+| 00:22:04–00:22:12 | Tor files extracted to Desktop      |
+| 00:22:22          | Tor Browser launched                |
+| 00:22:34          | Connection established to Tor relay |
+| 00:22:37–00:27:54 | Continued Tor browsing activity     |
+| 00:35:58          | tor-shopping-list.txt created       |
+
+This sequence shows a **complete activity chain from download to network communication**.
+
+---
+
+## 📥 Step 1: Identifying Tor Downloads
+
+The first step was to search for any file containing the string **"tor"**.
+
+```kql
+DeviceFileEvents
+| where DeviceName == "vm-hunt-tyo"
+| where InitiatingProcessAccountName == "dan"
+| where FileName startswith "tor"
+| order by Timestamp desc
+```
+
+This query identified the download of:
+**tor-browser-windows-x86_64-portable-15.0.7.exe**
+
+This installer was downloaded to the Downloads directory, marking the start of Tor activity.
+
+<Image
+  src="/blogs/labs/threat_hunt_tor/1.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+---
+
+## ⚙️ Step 2: Detecting Installer Execution
+
+Next, I searched process execution logs to determine whether the installer was run.
+
+```kql
+DeviceProcessEvents
+| where DeviceName == "vm-hunt-tyo"
+| where ProcessCommandLine contains "tor-browser"
+```
+
+The logs confirmed that the installer was executed and triggered a silent installation.
+
+<Image
+  src="/blogs/labs/threat_hunt_tor/2.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+---
+
+## 🚀 Step 3: Detecting Tor Process Activity
+
+To confirm that Tor was actually launched, I searched for the following processes:
+
+**tor.exe | firefox.exe (Tor Browser)**
+
+```kql
+DeviceProcessEvents
+| where FileName has_any ("tor.exe","firefox.exe")
+```
+
+The logs confirmed both processes were executed shortly after installation.
+
+<Image
+  src="/blogs/labs/threat_hunt_tor/3.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+---
+
+## 🌐 Step 4: Detecting Tor Network Connections
+
+One of the strongest indicators of Tor activity is network communication with Tor relay nodes.
+
+Tor commonly uses ports such as:
+
+9001 | 9030 | 9050 | 9051 | 9150
+
+The following query identified Tor network activity:
+
+```kql
+DeviceNetworkEvents
+| where DeviceName == "vm-hunt-tyo"
+| where InitiatingProcessFileName in ("tor.exe","firefox.exe")
+| where RemotePort in ("9001","9030","9040","9050","9051","9150","80","443")
+```
+
+The endpoint established a connection to:
+
+**IP Address: 15.204.223.128 | Port: 9001 | Process: tor.exe**
+
+This confirms the system successfully connected to a Tor relay node.
+
+<Image
+  src="/blogs/labs/threat_hunt_tor/4.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+---
+
+## 📄 Step 5: Identifying User Artifacts
+
+Later in the timeline, the following file was created on the Desktop:
+**tor-shopping-list.txt**
+
+<Image
+  src="/blogs/labs/threat_hunt_tor/1.webp"
+  width="718"
+  height="404"
+  alt="Image"
+  sizes="100vw"
+/>
+
+While the file contents were not analyzed in this investigation, its name suggests it may have been created during Tor browsing activity.
+
+---
+
+## 🚨 Indicators of Compromise (IOCs)
+
+| Type       | Indicator                                      |
+| ---------- | ---------------------------------------------- |
+| File       | tor-browser-windows-x86_64-portable-15.0.7.exe |
+| File       | tor-shopping-list.txt                          |
+| Process    | tor.exe                                        |
+| Process    | firefox.exe                                    |
+| IP Address | 15.204.223.128                                 |
+| Port       | 9001                                           |
+
+---
+
+## 🧬 MITRE ATT&CK Mapping
+
+The activity observed aligns with several MITRE ATT&CK techniques:
+
+| Technique                  | ID    |
+| -------------------------- | ----- |
+| User Execution             | T1204 |
+| Ingress Tool Transfer      | T1105 |
+| Application Layer Protocol | T1071 |
+| Encrypted Channel          | T1573 |
+
+These techniques describe the download, execution, and encrypted communication behaviors observed during the investigation.
+
+---
+
+## 🛡 Security Assessment
+
+This investigation confirmed:
+
+- Tor Browser was downloaded
+- Tor Browser was executed
+- Tor processes ran on the endpoint
+- The system connected to the Tor network
+
+Although Tor is not inherently malicious, its presence in enterprise environments can indicate:
+
+Anonymous activity
+Attempts to bypass monitoring
+Possible policy violations
+
+Organizations often monitor or restrict Tor usage as part of their security controls.
+
+---
+
+## 🔧 Recommended Security Controls
+
+Endpoint Monitoring
+
+Detect execution of:
+tor.exe
+
+Application Control
+
+Restrict installation of anonymizing tools such as:
+
+- Tor Browser
+- Proxy tunneling tools
+- Network Controls
+
+Consider blocking outbound connections to common Tor ports:
+9001 | 9030 | 9050 | 9051 | 9150
+
+---
+
+## 🧾 Conclusion
+
+This threat hunting investigation confirmed that the Tor Browser was downloaded, installed, and used on the endpoint, **vm-hunt-tyo**.
+
+The browser successfully connected to Tor relay infrastructure, enabling anonymous communication through the Tor network.
+
+While no additional malicious payloads were identified during this investigation, the presence of anonymizing tools may represent a security policy violation and potential risk within enterprise environments.
+
+---
+
+## 📥 Download the Executive Summary Report
+
+👉 <a href="/blogs/labs/threat_hunt_tor/Tor_Threat_Hunting_Summary_Report.pdf" target="_blank" rel="noopener" download>Tor Threat Hunting Summary Report (PDF)</a>
+
+📎 **GitHub Repository:**
+[Threat Hunt Tor Project](https://github.com/dan-chui/Threat-Hunt-Tor)
+
+---
+
+⚠️ Disclaimer:
+This project is a simulated threat hunting exercise created for educational and portfolio purposes. The environment, devices, and user accounts referenced are part of a controlled lab environment and do not represent real-world systems or individuals.
+
+---
+
+_Thanks for reading!_ 🙏
+
+_If you're interested in security governance, GRC frameworks, or enterprise risk programs - feel free to connect with me on LinkedIn._
+
+_Feel free to reach out with questions or thoughts._
+
+---
