@@ -63,7 +63,7 @@ For security teams, Tor usage can be a **high-risk signal** depending on the env
 
 ## 🔍 Threat Hunting Methodology
 
-The investigation relied on **Microsoft Defender XDR Advanced Hunting (KQL)Microsoft Defender Advanced Hunting** and several telemetry tables:
+The investigation relied on **Microsoft Defender XDR Advanced Hunting (KQL) Microsoft Defender Advanced Hunting** and several telemetry tables:
 
 | Log Source          | Purpose                                |
 | ------------------- | -------------------------------------- |
@@ -270,12 +270,12 @@ Organizations often monitor or restrict Tor usage as part of their security cont
 
 ## 🔧 Recommended Security Controls
 
-Endpoint Monitoring
+**Endpoint Monitoring**
 
 Detect execution of:
 tor.exe
 
-Application Control
+**Application Control**
 
 Restrict installation of anonymizing tools such as:
 
@@ -283,7 +283,7 @@ Restrict installation of anonymizing tools such as:
 - Proxy tunneling tools
 - Network Controls
 
-Consider blocking outbound connections to common Tor ports:
+**Consider blocking outbound connections to common Tor ports:**
 9001 | 9030 | 9050 | 9051 | 9150
 
 ---
