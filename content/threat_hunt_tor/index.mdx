@@ -1,9 +1,9 @@
 ---
-title: "Threat Hunting with Microsoft Defender: Investigating Tor Browser Activity"
+title: "Threat Hunting with Microsoft Defender XDR (including Defender for Endpoint): Investigating Tor Browser Activity"
 description: "Investigating Tor Browser installation and network activity using Microsoft Defender XDR and KQL during a proactive threat hunting exercise"
 image: "../../public/blogs/article_images/25.webp"
 publishedAt: "2026-03/25"
-updatedAt: "2026-03/25"
+updatedAt: "2026-04/06"
 author: "Dan Chui"
 isPublished: true
 tags:
@@ -11,10 +11,11 @@ tags:
   - threat-hunting
   - microsoft-defender
   - kql
-  - soc-Analysis
+  - siem
+  - incident-response
 ---
 
-## 🔎 Threat Hunting with Microsoft Defender: Investigating Tor Browser Activity
+## 🔎 Threat Hunting with Microsoft Defender XDR: Investigating Tor Browser Activity
 
 Threat hunting is one of the most valuable skills for a security analyst. Rather than waiting for alerts, analysts proactively search for suspicious activity hidden in telemetry data.
 
@@ -22,7 +23,7 @@ In this project, I conducted a **threat hunt using Microsoft Defender XDR Advanc
 
 The investigation confirmed that Tor was downloaded, installed, and used on the system, with network connections established to Tor relay infrastructure.
 
-Let's walk through the investigation process step-by-step.
+This investigation follows a structured analyst workflow from detection to validation and risk assessment.
 
 ---
 
@@ -62,7 +63,7 @@ For security teams, Tor usage can be a **high-risk signal** depending on the env
 
 ## 🔍 Threat Hunting Methodology
 
-The investigation relied on **Microsoft Defender Advanced Hunting** and several telemetry tables:
+The investigation relied on **Microsoft Defender XDR Advanced Hunting (KQL)Microsoft Defender Advanced Hunting** and several telemetry tables:
 
 | Log Source          | Purpose                                |
 | ------------------- | -------------------------------------- |
@@ -119,7 +120,7 @@ This installer was downloaded to the Downloads directory, marking the start of T
   src="/blogs/labs/threat_hunt_tor/1.webp"
   width="718"
   height="404"
-  alt="Image"
+  alt="KQL query showing Tor installer download"
   sizes="100vw"
 />
 
@@ -141,7 +142,7 @@ The logs confirmed that the installer was executed and triggered a silent instal
   src="/blogs/labs/threat_hunt_tor/2.webp"
   width="718"
   height="404"
-  alt="Image"
+  alt="KQL query showing Tor installation"
   sizes="100vw"
 />
 
@@ -164,7 +165,7 @@ The logs confirmed both processes were executed shortly after installation.
   src="/blogs/labs/threat_hunt_tor/3.webp"
   width="718"
   height="404"
-  alt="Image"
+  alt="KQL query showing Tor file execution"
   sizes="100vw"
 />
 
@@ -197,7 +198,7 @@ This confirms the system successfully connected to a Tor relay node.
   src="/blogs/labs/threat_hunt_tor/4.webp"
   width="718"
   height="404"
-  alt="Image"
+  alt="KQL query showing Tor network relay"
   sizes="100vw"
 />
 
@@ -212,7 +213,7 @@ Later in the timeline, the following file was created on the Desktop:
   src="/blogs/labs/threat_hunt_tor/1.webp"
   width="718"
   height="404"
-  alt="Image"
+  alt="KQL query showing file artifact"
   sizes="100vw"
 />
 
