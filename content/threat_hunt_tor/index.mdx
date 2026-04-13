@@ -3,7 +3,7 @@ title: "Threat Hunting with Microsoft Defender XDR (including Defender for Endpo
 description: "Investigating Tor Browser installation and network activity using Microsoft Defender XDR and KQL during a proactive threat hunting exercise"
 image: "../../public/blogs/article_images/25.webp"
 publishedAt: "2026-03/25"
-updatedAt: "2026-04/06"
+updatedAt: "2026-04/14"
 author: "Dan Chui"
 isPublished: true
 tags:
@@ -21,9 +21,9 @@ Threat hunting is one of the most valuable skills for a security analyst. Rather
 
 In this project, I conducted a **threat hunt using Microsoft Defender XDR Advanced Hunting** to investigate suspicious activity related to the **Tor Browser** on an endpoint.
 
-The investigation confirmed that Tor was downloaded, installed, and used on the system, with network connections established to Tor relay infrastructure.
+The investigation confirmed that Tor was downloaded, executed, and actively used on the endpoint, with network connections established to Tor relay infrastructure.
 
-This investigation follows a structured analyst workflow from detection to validation and risk assessment.
+This investigation follows a structured SOC-style workflow including detection, alert triage, timeline reconstruction, severity assessment, and escalation decision-making.
 
 ---
 
@@ -37,9 +37,33 @@ This investigation follows a structured analyst workflow from detection to valid
 | User               | dan                    |
 | Detection Method   | KQL Log Analysis       |
 
+## 🚨 Alert Triage
+
+Upon identifying Tor-related activity, the alert was triaged to determine whether it represented malicious behavior, policy violation, or benign user activity.
+
+### Key Questions
+
+- Is the activity authorized within the environment?
+- Is there evidence of malicious intent or follow-on activity?
+- Does the activity indicate data exfiltration or lateral movement?
+
+### Findings
+
+- Tor Browser activity confirmed via file, process, and network telemetry
+- No evidence of privilege escalation or persistence
+- Network connections aligned with Tor relay infrastructure
+
+### Severity Assessment
+
+The activity was classified as **Medium severity** due to:
+
+- Use of anonymization software in a monitored environment
+- External encrypted communication
+- Potential violation of enterprise security policy
+
 ### Investigation Objective
 
-Identify whether the **Tor Browser** was installed or used on the endpoint and determine:
+Identify whether the **Tor Browser** was downloaded, executed, and used on the endpoint and determine:
 
 - When Tor was downloaded
 - Whether it was executed
@@ -50,7 +74,7 @@ Identify whether the **Tor Browser** was installed or used on the endpoint and d
 
 ## 🧠 Why Tor Activity Matters
 
-Tor itself is **not malicious**, but it is often associated with:
+Tor itself is not inherently malicious, but in enterprise environments it is often associated with:
 
 🔐 Anonymous browsing  
 🕸 Dark web marketplace access  
@@ -63,7 +87,7 @@ For security teams, Tor usage can be a **high-risk signal** depending on the env
 
 ## 🔍 Threat Hunting Methodology
 
-The investigation relied on **Microsoft Defender XDR Advanced Hunting (KQL) Microsoft Defender Advanced Hunting** and several telemetry tables:
+The investigation relied on **Microsoft Defender XDR Advanced Hunting (KQL)** and multiple telemetry sources:
 
 | Log Source          | Purpose                                |
 | ------------------- | -------------------------------------- |
@@ -136,7 +160,7 @@ DeviceProcessEvents
 | where ProcessCommandLine contains "tor-browser"
 ```
 
-The logs confirmed that the installer was executed and triggered a silent installation.
+The logs confirmed that the installer was executed and extracted the Tor Browser files to the system.
 
 <Image
   src="/blogs/labs/threat_hunt_tor/2.webp"
@@ -159,7 +183,7 @@ DeviceProcessEvents
 | where FileName has_any ("tor.exe","firefox.exe")
 ```
 
-The logs confirmed both processes were executed shortly after installation.
+The logs confirmed both processes were executed shortly after extraction.
 
 <Image
   src="/blogs/labs/threat_hunt_tor/3.webp"
@@ -217,11 +241,11 @@ Later in the timeline, the following file was created on the Desktop:
   sizes="100vw"
 />
 
-While the file contents were not analyzed in this investigation, its name suggests it may have been created during Tor browsing activity.
+This file appears to be a user-created artifact generated after Tor activity was observed.
 
 ---
 
-## 🚨 Indicators of Compromise (IOCs)
+## 🚨 Indicators of Interest
 
 | Type       | Indicator                                      |
 | ---------- | ---------------------------------------------- |
@@ -251,20 +275,17 @@ These techniques describe the download, execution, and encrypted communication b
 
 ## 🛡 Security Assessment
 
-This investigation confirmed:
+The investigation confirmed that Tor Browser was downloaded, executed, and used on the endpoint, with successful outbound communication to Tor relay infrastructure.
 
-- Tor Browser was downloaded
-- Tor Browser was executed
-- Tor processes ran on the endpoint
-- The system connected to the Tor network
+No evidence of persistence, privilege escalation, or malware execution was observed during the analysis period.
 
-Although Tor is not inherently malicious, its presence in enterprise environments can indicate:
+However, the use of anonymization tools in an enterprise environment may indicate:
 
-- Anonymous activity
-- Attempts to bypass monitoring
-- Possible policy violations
+- Policy violations
+- Reduced visibility into user activity
+- Potential risk depending on user intent
 
-Organizations often monitor or restrict Tor usage as part of their security controls.
+The activity was therefore assessed as **non-malicious but potentially policy-violating**.
 
 ---
 
@@ -272,8 +293,10 @@ Organizations often monitor or restrict Tor usage as part of their security cont
 
 **Endpoint Monitoring**
 
-Detect execution of:
-tor.exe
+Monitor for execution of Tor-related processes such as:
+
+- tor.exe
+- firefox.exe (Tor Browser)
 
 **Application Control**
 
@@ -288,13 +311,30 @@ Restrict installation of anonymizing tools such as:
 
 ---
 
+## ⬆️ Escalation Consideration
+
+Although no direct malicious activity was identified, the use of anonymization software in an enterprise environment may violate acceptable use policies and reduce monitoring visibility.
+
+The activity was escalated for further review to validate:
+
+- Whether the activity was authorized
+- Whether containment or remediation actions were required
+
+---
+
 ## 🧾 Conclusion
 
-This threat hunting investigation confirmed that the Tor Browser was downloaded, installed, and used on the endpoint, **vm-hunt-tyo**.
+This investigation demonstrates how endpoint telemetry can support a structured SOC workflow including alert triage, investigation, severity assessment, and escalation.
 
-The browser successfully connected to Tor relay infrastructure, enabling anonymous communication through the Tor network.
+The activity followed a clear sequence:
 
-While no additional malicious payloads were identified during this investigation, the presence of anonymizing tools may represent a security policy violation and potential risk within enterprise environments.
+1. Tor downloaded
+2. Installer executed
+3. Browser launched
+4. Tor network connection established
+5. User artifact created
+
+While no malicious activity was confirmed, the use of anonymization software represents a potential policy violation and highlights the importance of monitoring and contextual analysis in security operations.
 
 ---
 
