@@ -1,11 +1,23 @@
-'use client';
-import React from 'react';
-import { DotLottiePlayer } from '@dotlottie/react-player';
-import '@dotlottie/react-player/dist/index.css';
+"use client";
+
+import dynamic from "next/dynamic";
+
+const DotLottiePlayer = dynamic(
+  () => import("@dotlottie/react-player").then((mod) => mod.DotLottiePlayer),
+  { ssr: false },
+);
 
 const LottieAnimation = () => {
   return (
-    <DotLottiePlayer src="/Astronaut.lottie" autoplay loop></DotLottiePlayer>
+    <div className="flex justify-center items-center">
+      <DotLottiePlayer
+        src="/Astronaut.lottie"
+        autoplay
+        loop
+        mode="bounce"
+        style={{ width: "300px", height: "300px" }}
+      />
+    </div>
   );
 };
 

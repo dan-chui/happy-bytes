@@ -1,21 +1,21 @@
-import './globals.css';
-import { cx } from '@/src/utils';
-import { Inter, Manrope } from 'next/font/google';
-import Header from '@/src/components/header';
-import Footer from '../components/Footer';
-import siteMetadata from '../utils/siteMetaData';
-import ThemeScript from '../components/ThemeScript';
+import "./globals.css";
+import { cx } from "@/src/utils";
+import { Inter, Manrope } from "next/font/google";
+import Header from "@/src/components/header";
+import Footer from "../components/Footer";
+import siteMetadata from "../utils/siteMetaData";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-in',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-in",
 });
 
 const manrope = Manrope({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mr',
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mr",
 });
 
 export const metadata = {
@@ -31,8 +31,8 @@ export const metadata = {
     url: siteMetadata.siteUrl,
     siteName: siteMetadata.title,
     images: [siteMetadata.socialBanner],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -41,27 +41,28 @@ export const metadata = {
       index: true,
       follow: true,
       noimageindex: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cx(
           inter.variable,
           manrope.variable,
-          'font-mr bg-light dark:bg-dark'
+          "font-mr bg-light dark:bg-dark",
         )}
       >
-        <ThemeScript />
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

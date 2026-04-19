@@ -1,0 +1,207 @@
+---
+title: "Threat Hunting with Microsoft Defender XDR: Reconstructing a Ransomware Intrusion"
+description: "Reconstructing a multi-stage ransomware attack using Microsoft Defender telemetry and KQL, covering reconnaissance, credential discovery, persistence, staging, and impact"
+image: "../../public/blogs/article_images/26.webp"
+publishedAt: "2026-04/19"
+updatedAt: "2026-04/19"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - threat-hunting
+  - microsoft-defender
+  - kql
+  - ransomware
+  - incident-response
+---
+
+# 🛡️ Reconstructing a Ransomware Attack Using Microsoft Defender and KQL
+
+## 🧭 Introduction
+
+In this investigation, I performed a threat hunt using Microsoft Defender telemetry to reconstruct a multi-stage ransomware attack. The goal was to understand attacker behavior across the full lifecycle - from reconnaissance to impact - and identify key detection opportunities along the way.
+
+This exercise builds on my previous Tor Browser investigation and continues my focus on practical threat hunting using **KQL (Kusto Query Language)** and endpoint telemetry.
+
+---
+
+## 🎯 Attack Overview
+
+The attack followed a typical ransomware playbook:
+
+1. 🔽 Tool delivery using LOLBins
+2. 🔍 Network reconnaissance
+3. 🔑 Credential discovery
+4. 🖥️ Remote access establishment
+5. 📦 Data staging
+6. 💣 Ransomware deployment
+7. 🧨 Backup destruction
+8. 🧹 Evidence cleanup
+
+The ransomware payload identified during the investigation was:
+
+- **Filename:** `updater.exe`
+- **SHA256:**
+
+  ```
+  e609d070ee9f76934d73353be4ef7ff34b3ecc3a2d1e5d052140ed4cb9e4752b
+  ```
+
+Encryption activity began at:
+
+```
+22:18:33 UTC
+```
+
+---
+
+## 🔍 Key Investigation Findings
+
+### 🛰️ Reconnaissance
+
+The attacker used:
+
+```
+advanced_ip_scanner.exe
+```
+
+to identify accessible systems on the network.
+
+👉 This is a common early-stage technique that often goes unnoticed.
+
+---
+
+### 🔑 Credential Discovery
+
+The following command was used to identify the LSASS process:
+
+```
+tasklist | findstr lsass
+```
+
+This indicates preparation for potential credential access or dumping.
+
+---
+
+### 🌐 Command and Control
+
+Persistence was established using:
+
+```
+AnyDesk.exe
+```
+
+👉 This allowed the attacker to maintain remote access and execute commands across the environment.
+
+---
+
+### 📦 Data Staging
+
+Prior to ransomware deployment, files were compressed.
+
+This behavior is consistent with:
+
+- pre-exfiltration staging
+- preparation for encryption
+
+👉 Archive creation in suspicious directories is a strong detection signal.
+
+---
+
+### 💣 Ransomware Deployment
+
+The ransomware binary:
+
+```
+updater.exe
+```
+
+was executed, marking the transition to the **impact phase**.
+
+---
+
+### 🧨 Defense Evasion
+
+To prevent recovery, the attacker deleted shadow copies:
+
+```
+vssadmin delete shadows /all /quiet
+```
+
+👉 This is one of the most reliable indicators of ransomware activity.
+
+---
+
+### 🧹 Evidence Cleanup
+
+After execution, the attacker removed the ransomware binary.
+
+This suggests an attempt to:
+
+- reduce forensic artifacts
+- evade detection
+
+---
+
+## 🚨 Detection Opportunities
+
+This attack presents multiple opportunities for early detection:
+
+- ⚙️ Monitoring LOLBin usage
+- 🔍 Detecting network scanning tools
+- 🔑 Identifying credential discovery commands
+- 🧨 Alerting on shadow copy deletion
+- 📦 Tracking suspicious archive creation
+
+👉 Several of these signals appear **before encryption begins**, which is critical for prevention.
+
+---
+
+## 🧠 Key Takeaways
+
+- Ransomware attacks follow **predictable behavioral patterns**
+- Early-stage activity is often detectable with proper telemetry
+- Correlating process, file, and network events is essential
+- Defender + KQL provides strong visibility for threat hunting
+
+---
+
+## 🧩 Conclusion
+
+This investigation demonstrates how structured threat hunting can reconstruct attacker behavior without relying on alerts alone.
+
+By mapping activity to the MITRE ATT&CK framework and analyzing endpoint telemetry, it is possible to identify and disrupt attacks before they reach the encryption stage.
+
+---
+
+## 💬 Final Thoughts
+
+Threat hunting is not just about detecting malware - it’s about understanding attacker behavior.
+
+The more you can recognize patterns, the earlier you can respond.
+
+---
+
+## 📥 Download the Executive Summary Report
+
+👉 <a href="/blogs/labs/threat_hunt_ransomware/Ransomware_Threat_Hunting_Summary_Report.pdf" target="_blank" rel="noopener" download>Ransomware Threat Hunting Summary Report (PDF)</a>
+
+🔗 Full report and supporting files available on [GitHub](https://github.com/dan-chui/Threat-Hunt-Ransomware-Investigation)
+
+- 🧪 KQL Queries Used:
+  Included in the repository
+
+---
+
+⚠️ Disclaimer:
+This project is a simulated threat hunting exercise created for educational and portfolio purposes. The environment, devices, and user accounts referenced are part of a controlled lab environment and do not represent real-world systems or individuals.
+
+---
+
+_Thanks for reading!_ 🙏
+
+_If you're interested in security governance, GRC frameworks, or enterprise risk programs - feel free to connect with me on LinkedIn._
+
+_Feel free to reach out with questions or thoughts._
+
+---

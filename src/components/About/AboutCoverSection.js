@@ -10,14 +10,16 @@ const AboutCoverSection = () => {
         <p className="font-medium mt-4 text-base">
           <span>
             <p>
-              Hi, I'm Dan! This blog started out as a place to share my journey
-              in web development, but lately I have been diving head-first into
-              the world of cybersecurity. Here you will find my notes, lessons
-              learned, and little discoveries along the way as I explore
-              everything from risk and compliance to hands-on security tools.
-              Think of it as a mix of study journal and personal
-              reflections—written to help me learn, and hopefully to help anyone
-              else starting out, too.
+              Hi, I'm Dan. This blog documents my transition into IT, security,
+              and technology risk, building on a background in financial risk
+              and governance. Here you’ll find a mix of hands-on labs,
+              system-level observations, and practical insights across identity,
+              access, security operations, and risk management. Rather than
+              focusing on tools alone, I aim to understand how technology,
+              security, and business risk intersect in real-world environments.
+              Think of this as a practical learning journal - bridging
+              structured labs with real-world application, and sharing insights
+              that are useful for both IT and security roles.
             </p>
             {/* <br></br>
             <p>

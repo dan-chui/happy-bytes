@@ -1,15 +1,14 @@
 const siteMetadata = {
-  title: "Happy Bytes - Cybersecurity Blog",
+  title: "Happy Bytes - Technology, Security & Risk",
   author: "Dan Chui",
-  headerTitle: "Next.js Blog",
+  headerTitle: "Technology, Security & Risk",
   description:
-    "Blog website featuring news, updates, and technical information about cybersecurity.",
+    "Insights on IT systems, security operations, identity & access management, and technology risk. Bridging hands-on labs with real-world application.",
   language: "en-us",
-  theme: "system", // system, dark or light
-  siteUrl: "https://www.linkedin.com/in/danchui/",
+  theme: "system",
+  siteUrl: "https://happy-bytes.vercel.app",
   siteLogo: "/logo.png",
   socialBanner: "/social-banner.webp",
-  email: "contact@danchui.dev",
   github: "https://github.com/dan-chui",
   linkedin: "https://www.linkedin.com/in/danchui/",
   locale: "en-US",

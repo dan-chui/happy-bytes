@@ -1,17 +1,15 @@
 const SkillList = [
-  "Cybersecurity",
-  "Web",
-  "Networking",
-  "Compliance",
-  "Risk",
-  "Analysis",
+  "IT Operations",
+  "Identity & Access (Entra ID)",
+  "Security Operations",
+  "Risk & Compliance",
+  "SIEM (Microsoft Sentinel)",
+  "Endpoint Security (Defender)",
+  "Cloud Security",
   "GRC",
-  "SIEM",
-  "Cloud",
-  "Python",
-  "ISO27001",
-  "Security +",
-  "ISC CC",
+  "ISO 27001",
+  "Threat Analysis",
+  "Incident Response",
 ];
 
 const Skills = () => {
