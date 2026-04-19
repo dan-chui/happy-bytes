@@ -9,14 +9,16 @@ const DotLottiePlayer = dynamic(
 
 const LottieAnimation = () => {
   return (
-    <div className="flex justify-center items-center">
-      <DotLottiePlayer
-        src="/Astronaut.lottie"
-        autoplay
-        loop
-        mode="bounce"
-        style={{ width: "300px", height: "300px" }}
-      />
+    <div className="flex justify-center items-center w-full">
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+        <DotLottiePlayer
+          src="/Astronaut.lottie"
+          autoplay
+          loop
+          mode="bounce"
+          className="w-full h-auto"
+        />
+      </div>
     </div>
   );
 };
