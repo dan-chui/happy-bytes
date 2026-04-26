@@ -1,0 +1,264 @@
+---
+title: "From Excel to Python: Building a Value at Risk (VaR) Model for a Multi-Asset Portfolio"
+description: "A practical walkthrough of building a Value at Risk (VaR) model using both Excel and Python, bridging financial risk analysis with automation and data workflows."
+image: "../../public/blogs/article_images/27.webp"
+publishedAt: "2026-04/26"
+updatedAt: "2026-04/26"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - finance
+  - python
+  - risk management
+  - data analysis
+---
+
+# 💡 Why This Project?
+
+As part of my transition into technology-focused roles, I wanted to revisit one of the core concepts from my background in financial risk: **Value at Risk (VaR)**.
+
+Rather than treating this as a purely academic exercise, I approached it with two goals:
+
+- Reinforce core financial risk concepts (VaR, covariance, portfolio risk)
+- Translate those concepts into a **Python-based workflow** to demonstrate automation and data analysis skills
+
+This project became a useful bridge between:
+
+- **Finance → Risk Modeling**
+- **Technology → Python, data processing, reproducibility**
+
+---
+
+## 📊 What is Value at Risk (VaR)?
+
+Value at Risk (VaR) estimates the **potential loss in value of a portfolio over a given time horizon at a specified confidence level**.
+
+For example:
+
+> A 10-day 95% VaR of $3,268 means that, under normal conditions, the portfolio is not expected to lose more than $3,268 over 10 days, 95% of the time.
+
+---
+
+## 🧩 Portfolio Setup
+
+To keep things practical, I used a simple diversified portfolio:
+
+| Asset | Weight |
+| ----- | ------ |
+| SPY   | 40%    |
+| QQQ   | 25%    |
+| AGG   | 25%    |
+| GLD   | 10%    |
+
+- Portfolio Value: **$100,000**
+- Data: ~1 year of **daily returns**
+
+---
+
+## 🧠 Why These Assets?
+
+The portfolio was constructed using four widely traded ETFs to represent different asset classes:
+
+| Asset | Description                               |
+| ----- | ----------------------------------------- |
+| SPY   | U.S. broad equity market (S&P 500)        |
+| QQQ   | U.S. growth / technology-focused equities |
+| AGG   | U.S. investment-grade bonds               |
+| GLD   | Gold (commodity / alternative asset)      |
+
+These assets were selected to illustrate a **simple diversified portfolio** with exposure to:
+
+- **Equities (SPY, QQQ)** → higher growth, higher volatility
+- **Fixed Income (AGG)** → lower volatility, income component
+- **Alternatives (GLD)** → diversification and potential hedge during market stress
+
+The combination helps demonstrate a key concept in portfolio risk:
+
+> Portfolio risk is not just driven by individual asset volatility, but by how assets move relative to each other (correlation).
+
+By including assets with **different risk profiles and correlations**, the model highlights the impact of diversification on:
+
+- portfolio variance
+- covariance structure
+- and overall Value at Risk (VaR)
+
+While simplified, this structure reflects a common multi-asset allocation framework used in portfolio and risk management.
+
+---
+
+## ⚙️ Methodology
+
+Two approaches were used:
+
+### 1️⃣ Historical VaR
+
+- Based on actual historical return distribution
+- No assumptions about normality
+- Computed using percentiles of portfolio returns
+
+### 2️⃣ Parametric VaR (Variance-Covariance)
+
+- Assumes returns follow a normal distribution
+- Uses:
+  - Covariance matrix
+  - Portfolio variance
+  - Z-scores
+- Applies square-root-of-time scaling for multi-day VaR
+
+---
+
+## 🧮 Key Step: Portfolio Risk Aggregation
+
+A core concept in this project is how portfolio risk is calculated.
+
+Portfolio variance is computed as:
+
+Portfolio Variance = wᵀ Σ w
+
+Where:
+
+- `w` = weights vector
+- `Σ` = covariance matrix
+
+This captures not just individual asset volatility, but also **how assets move together**.
+
+---
+
+## 🐍 Why Python?
+
+The Excel model was useful for validation, but Python adds:
+
+- **Reproducibility**
+- **Automation**
+- **Scalability**
+- Cleaner handling of datasets
+
+Using Python libraries such as:
+
+- `pandas` → data handling
+- `numpy` → matrix operations
+- `matplotlib` → visualization
+
+I was able to replicate the full VaR workflow programmatically.
+
+---
+
+## 📈 Results
+
+Key outputs from the analysis:
+
+- Portfolio Daily Volatility: ~0.63%
+- 1-Day Historical VaR (95%): ~$1,044
+- 10-Day Parametric VaR (95%): ~$3,268
+
+### Interpretation
+
+> Under normal market conditions, the portfolio is expected to lose no more than approximately $3,268 over a 10-day period with 95% confidence.
+
+---
+
+## 📊 Visualization
+
+The project also includes:
+
+- Distribution of portfolio returns (histogram)
+
+<Image
+  src="/blogs/labs/var_portfolio_analysis/Distribution_of_Portfolio_Returns_Histogram.webp"
+  alt="Distribution of Portfolio Returns Histogram"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: "100%", height: "auto" }}
+/>
+
+- Time series of portfolio returns
+
+<Image
+  src="/blogs/labs/var_portfolio_analysis/Time_Series_of_Portfolio_Returns.webp"
+  alt="Time Series of Portfolio Returns"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: "100%", height: "auto" }}
+/>
+
+These help visualize:
+
+- volatility clustering
+- distribution shape
+- tail risk behavior
+
+---
+
+## ⚠️ Limitations
+
+Like all VaR models, there are important assumptions:
+
+- Parametric VaR assumes **normally distributed returns**
+- Historical VaR depends heavily on the chosen time window
+- Square-root-of-time scaling assumes independent returns
+- Extreme tail events are not fully captured
+
+---
+
+## 🔐 Connecting Finance and Technology
+
+This project reflects a broader direction I’ve been working toward:
+
+- Applying **analytical thinking from financial risk**
+- Using **technical tools (Python, data workflows)**
+- Building repeatable, explainable models
+
+The same mindset carries over into:
+
+- security monitoring
+- risk assessment
+- data-driven decision-making
+
+---
+
+## 🏁 Final Thoughts
+
+This wasn’t about building the most complex VaR model.
+
+It was about:
+
+- revisiting core concepts,
+- implementing them cleanly,
+- and demonstrating how traditional risk analysis can be translated into modern, technical workflows.
+
+---
+
+## 🔗 Project Links
+
+🔗 Full report and supporting files available on [GitHub](https://github.com/dan-chui/VaR-Portfolio-Analysis)
+
+---
+
+## 📌 Next Steps
+
+Potential extensions include:
+
+- Monte Carlo simulation
+- stress testing scenarios
+- integrating real-time data
+- expanding into risk dashboards
+
+---
+
+⚠️ Disclaimer:  
+This project is a simplified portfolio risk analysis created for educational and portfolio purposes. The data and assumptions used (including asset selection, return distributions, and time horizons) are illustrative and do not represent investment advice or real-world portfolio recommendations.
+
+---
+
+_Thanks for reading!_ 🙏
+
+_If you're interested in financial risk, data-driven analysis, or the intersection of finance and technology - feel free to connect with me on LinkedIn._
+
+_I’m particularly interested in roles and projects related to risk management, governance, and analytical problem-solving across finance and technology._
+
+_Feel free to reach out with any questions or thoughts._
+
+---
