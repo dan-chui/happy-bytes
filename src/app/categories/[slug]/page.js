@@ -1,13 +1,13 @@
-import { allBlogs } from '@/.contentlayer/generated';
-import BlogLayoutThree from '@/src/components/Blog/BlogLayoutThree';
-import Categories from '@/src/components/Blog/Categories';
-import GithubSlugger, { slug } from 'github-slugger';
+import { allBlogs } from "@/.contentlayer/generated";
+import BlogLayoutThree from "@/src/components/Blog/BlogLayoutThree";
+import Categories from "@/src/components/Blog/Categories";
+import GithubSlugger, { slug } from "github-slugger";
 
 const slugger = new GithubSlugger();
 
 export async function generateStaticParams() {
   const categories = [];
-  const paths = [{ slug: 'all' }];
+  const paths = [{ slug: "all" }];
 
   allBlogs.map((blog) => {
     if (blog.isPublished) {
@@ -26,22 +26,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   return {
-    title: `${params.slug.replaceAll('-', ' ')} Blogs`,
+    title: `${params.slug.replaceAll("-", " ")} Blogs`,
     description: `Learn more about ${
-      params.slug === 'all' ? 'web development' : params.slug
+      params.slug === "all" ? "web development" : params.slug
     } through our collection of blogs and tutorials`,
   };
 }
 
 const CategoryPage = ({ params }) => {
-  const allCategories = ['all'];
+  const allCategories = ["all"];
   const blogs = allBlogs.filter((blog) => {
     return blog.tags.some((tag) => {
       const slugified = slug(tag);
       if (!allCategories.includes(slugified)) {
         allCategories.push(slugified);
       }
-      if (params.slug === 'all') {
+      if (params.slug === "all") {
         return true;
       }
       return slugified === params.slug;
@@ -58,7 +58,7 @@ const CategoryPage = ({ params }) => {
       </div>
       <Categories categories={allCategories} currentSlug={params.slug} />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mt-5 sm:mt-10 md:mt-24 sxl:mt-32 px-5 sm:px-10 md:px-24 sxl:px-32">
         {blogs.map((blog, index) => (
           <article key={index} className="col-span-1 row-span-1 relative">
             <BlogLayoutThree blog={blog} />
