@@ -113,9 +113,9 @@ It is designed to demonstrate practical, enterprise-relevant capabilities aligne
 ### Preview
 
 ![Homepage](/public/screenshot1.webp)
-![Article View](/public/screenshot2.webp)
-![Dark Mode](/public/screenshot3.webp)
-![Mobile View](/public/screenshot4.webp)
+![Featured Posts](/public/screenshot2.webp)
+![Article View](/public/screenshot3.webp)
+![Contact Page](/public/screenshot4.webp)
 
 ---
 
