@@ -11,14 +11,15 @@
 
 Welcome to **Happy Bytes** 👋
 
-**Happy Bytes** is a cybersecurity-focused blog built with **Next.js** to document hands-on security projects, threat investigations, and practical learning.
+**Happy Bytes** is a cybersecurity and technology risk-focused blog built with **Next.js** to document hands-on security projects, threat investigations, governance concepts, and practical learning.
 
 It serves as both a **technical journal** and **portfolio platform**, covering:
 
-- SOC & Blue Team operations  
+- Security Operations & Blue Team workflows  
 - SIEM log analysis & threat hunting  
 - Incident detection & response workflows  
-- Security governance & risk management  
+- Security governance, IT risk, and control frameworks  
+- Threat investigations and attack reconstruction  
 - Lab-based environments and simulated real-world attack scenarios
 
 Many articles are directly linked to supporting GitHub repositories, providing full transparency into methodology, queries, and investigation workflows.  
@@ -32,12 +33,13 @@ This project serves as both:
 - A **cybersecurity portfolio hub** showcasing hands-on investigations and analysis  
 - A **technical blog** documenting continuous learning in SOC operations, threat detection, and security governance  
 
-It is designed to demonstrate practical, job-relevant capabilities aligned with:
+It is designed to demonstrate practical, enterprise-relevant capabilities aligned with:
 
-- Security Operations (SOC / Blue Team)  
-- SIEM & Threat Detection  
-- Incident Response  
-- IT Risk & Security Governance  
+- Security Operations (SOC / Blue Team)
+- SIEM & Threat Detection
+- Incident Response & Threat Hunting
+- IT Risk & Security Governance
+- Security Monitoring & Investigation Workflows
 
 ---
 
@@ -58,13 +60,15 @@ It is designed to demonstrate practical, job-relevant capabilities aligned with:
 
 ## 🧠 Skills Demonstrated
 
-- SIEM Analysis (Microsoft Sentinel, Splunk)  
-- KQL Query Development (Microsoft Defender XDR)  
-- Threat Hunting & MITRE ATT&CK Mapping  
-- Incident Investigation & Reporting  
-- Vulnerability Management (Tenable)  
-- Security Governance & Risk Analysis (ISO 27001)  
-- Log Analysis & Network Forensics (Wireshark, CyberChef)  
+- SIEM Analysis (Microsoft Sentinel, Splunk)
+- KQL Query Development (Microsoft Defender XDR)
+- Threat Hunting & MITRE ATT&CK Mapping
+- Incident Investigation & Technical Reporting
+- Security Governance & Risk Analysis (ISO 27001)
+- Vulnerability Management (Tenable)
+- Log Analysis & Network Forensics (Wireshark, CyberChef)
+- Security Monitoring & Escalation Workflows
+- AI-Assisted Security Investigation Concepts
 
 ---
 
@@ -152,6 +156,15 @@ Open your browser and visit:
 - freeCodeCamp
 
 ---
+## 📚 Certifications & Training
+
+- CompTIA Security+, 2025
+- ISC² Certified in Cybersecurity (CC), 2025
+- Microsoft SC-900, 2026
+- MIT Cybersecurity for Managers, 2025
+- AWS CC, 2021
+
+---
 ## 📬 Contact
 
 If you’d like to connect or discuss cybersecurity opportunities, feel free to reach out via:
@@ -161,6 +174,6 @@ If you’d like to connect or discuss cybersecurity opportunities, feel free to 
 
 ---
 
-🚀 Actively building hands-on cybersecurity and technology risk experience, with a focus on transitioning into a full-time role in Tokyo.
+🚀 Expanding hands-on experience across cybersecurity, technology risk, and security operations, with a focus on full-time opportunities in Tokyo.
 
 🔐 Built with curiosity, discipline, and a blue-team mindset
