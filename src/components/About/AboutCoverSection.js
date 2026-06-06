@@ -21,13 +21,6 @@ const AboutCoverSection = () => {
               structured labs with real-world application, and sharing insights
               that are useful for both IT and security roles.
             </p>
-            {/* <br></br>
-            <p>
-              Ever since, I have focused on JavaScript and building interactive
-              and responsive web applications. I am excited to contribute to the
-              dynamic world of web development, push boundaries, and embrace new
-              challenges.
-            </p> */}
 
             <br></br>
             {/* <p>

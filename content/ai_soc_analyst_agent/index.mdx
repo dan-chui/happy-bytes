@@ -1,0 +1,362 @@
+---
+title: "AI SOC Analyst Agent: A Cybersecurity Capstone Project"
+description: "A cybersecurity capstone project combining Azure Log Analytics, Microsoft Defender, OpenAI, and Python to perform AI-assisted threat hunting, MITRE ATT&CK mapping, and security investigations with enhanced guardrails and analyst oversight."
+image: "../../public/blogs/article_images/29.webp"
+publishedAt: "2026-06/06"
+updatedAt: "2026-06/06"
+author: "Dan Chui"
+isPublished: true
+tags:
+  - cybersecurity
+  - threat-hunting
+  - soc
+  - ai-security
+  - openai
+  - python
+  - azure
+  - microsoft-defender
+  - kql
+  - mitre-attack
+  - security-operations
+  - security-automation
+  - blue-team
+---
+
+# 🤖 AI SOC Analyst Agent: A Cybersecurity Capstone Project
+
+## Introduction
+
+Over the past year, I have been building knowledge and hands-on experience across cybersecurity, cloud security, threat hunting, governance, risk management, and AI-assisted security operations.
+
+One of my final projects during my Cyber Range training experience was the development and refinement of an **AI SOC Analyst Agent** - a Python-based application that combines Azure Log Analytics, Microsoft Defender for Endpoint (MDE), and OpenAI to support threat hunting and security investigations.
+
+While the original project began as a guided training exercise, I wanted to take it further by refactoring the code, adding additional security controls, improving documentation, and making it suitable as a public portfolio project.
+
+<Image
+  src="/blogs/labs/ai_soc_analyst_agent/1_Initial_Prompt.webp"
+  alt="Initial prompt and results screen"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: "100%", height: "auto" }}
+/>
+
+---
+
+# 🎯 Project Goal
+
+Security analysts are often required to investigate large volumes of telemetry spread across multiple systems.
+
+The objective of this project was to explore how an AI-assisted workflow could help:
+
+- Interpret natural-language investigation requests
+- Select appropriate telemetry sources
+- Query Azure Log Analytics
+- Analyze security events
+- Identify suspicious activity
+- Map findings to MITRE ATT&CK
+- Generate investigation recommendations
+
+The goal was never to replace human analysts.
+
+Instead, the goal was to accelerate investigation workflows while maintaining analyst oversight and decision-making.
+
+---
+
+# 🏗️ High-Level Architecture
+
+<Image
+  src="/blogs/labs/ai_soc_analyst_agent/2_Agent_Workflow.webp"
+  alt="Agent workflow diagram"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: "100%", height: "auto" }}
+/>
+
+The project uses:
+
+- Python
+- Azure Log Analytics
+- Microsoft Defender for Endpoint
+- Azure Identity
+- Kusto Query Language (KQL)
+- OpenAI API
+- MITRE ATT&CK
+
+Additional architecture diagrams, workflow documentation, and guardrail design notes are available in the project's GitHub repository under the `/docs` folder on my [GitHub](https://github.com/dan-chui/AI-SOC-Analyst-Agent).
+
+---
+
+# 🔎 Example Investigation Workflow
+
+An analyst can submit a request such as:
+
+> I'm concerned that a Linux server may have been compromised over the last few days.
+
+The agent then:
+
+1. Determines the most relevant telemetry source
+2. Selects appropriate fields
+3. Generates a KQL query
+4. Retrieves logs from Azure Log Analytics
+5. Sends the data to OpenAI for analysis
+6. Identifies suspicious activity
+7. Maps findings to MITRE ATT&CK
+8. Produces investigation recommendations
+
+The resulting findings can then be reviewed by the analyst before any action is taken.
+
+---
+
+# 🛡️ Security Enhancements and Refactoring
+
+The original AI SOC Agent was introduced as part of a cybersecurity training program. Rather than treating it as a completed exercise, I used the project as an opportunity to review the design, refactor the implementation, and prepare it for public release as a portfolio artifact.
+
+The enhancements focused on improving security, operational safety, configuration management, and maintainability. The following sections highlight some of the key changes that were introduced during the refactoring process.
+
+---
+
+## 1️⃣ Environment Variable Support
+
+The original implementation relied on direct configuration values.
+
+The refactored version introduces:
+
+- Environment-variable support
+- Secret-safe GitHub publication
+- `.env.example`
+- Improved configuration hygiene
+
+This allows the repository to be published publicly without exposing sensitive information.
+
+---
+
+## 2️⃣ Investigation Scope Controls
+
+### Time Window Guardrails
+
+Large investigation windows can generate excessive data and significantly increase token consumption.
+
+To address this, I implemented maximum lookback periods for each telemetry source.
+
+Examples include:
+
+| Table               | Maximum Lookback |
+| ------------------- | ---------------- |
+| DeviceProcessEvents | 24 Hours         |
+| DeviceNetworkEvents | 24 Hours         |
+| DeviceLogonEvents   | 96 Hours         |
+| AzureActivity       | 168 Hours        |
+| SigninLogs          | 168 Hours        |
+
+This helps prevent excessive log collection while keeping investigations focused.
+
+### Row-Limiting Controls
+
+Another improvement was the introduction of log truncation controls.
+
+The platform now limits AI analysis to:
+
+```text
+500 rows
+```
+
+before telemetry is submitted to the model.
+
+Benefits include:
+
+- Reduced token consumption
+- Lower API costs
+- Faster processing
+- Improved stability
+
+---
+
+## 3️⃣ Sensitive Data Redaction
+
+One of the most important additions involved protecting sensitive information before submission to the LLM.
+
+The refactored version now sanitizes:
+
+- IP addresses
+- Email addresses
+- Azure GUIDs
+
+before data is sent for analysis.
+
+This helps reduce the risk of unnecessary exposure of sensitive information.
+
+---
+
+## 4️⃣ Security Guardrails
+
+Additional validation controls were added including:
+
+- Table allowlists
+- Field allowlists
+- Model allowlists
+- Guardrail reporting
+
+These controls help ensure investigations remain within approved boundaries.
+
+---
+
+## 5️⃣ Human-in-the-Loop Remediation
+
+Potential response actions such as endpoint isolation require explicit analyst approval.
+
+No remediation action occurs automatically.
+
+<Image
+  src="/blogs/labs/ai_soc_analyst_agent/4_VM_Isolation.webp"
+  alt="Human-in-the-Loop VM isolation input validation"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: "100%", height: "auto" }}
+/>
+
+This aligns with an important principle in security operations:
+
+> Automation should assist analysts, not replace them.
+
+---
+
+# 🚨 Example Findings
+
+These findings were generated from Azure telemetry and enriched with confidence levels, MITRE ATT&CK mappings, and analyst recommendations.
+
+- Credential stuffing attempts
+- Suspicious root logins
+- Service account credential probing
+- SSH enumeration activity
+
+<Image
+  src="/blogs/labs/ai_soc_analyst_agent/3_Threat_1.webp"
+  alt="Threat 1 - Credential stuffing"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: "100%", height: "auto" }}
+/>
+
+---
+
+# 💼 Why This Matters
+
+Beyond the technical implementation, the project explores a question many security teams are beginning to face:
+
+_How can AI assist security operations while remaining secure, transparent, and governed?_
+
+The answer is not simply connecting an LLM to security logs. Effective AI-assisted workflows require controls around data access, scope, validation, privacy, cost management, and analyst oversight.
+
+The guardrails added during refactoring were designed with these considerations in mind.
+
+---
+
+# 📚 What This Project Taught Me
+
+The technical aspects were valuable, but the most important lesson was something broader.
+
+Building AI-assisted security tooling is not simply about connecting an LLM to security logs.
+
+The challenge is building appropriate controls around that capability.
+
+This project reinforced the importance of:
+
+- Security guardrails
+- Governance
+- Data protection
+- Validation
+- Human oversight
+- Risk management
+
+Ironically, many of these concepts closely mirror principles I used earlier in my career while working in risk management and governance roles.
+
+---
+
+# 🎓 Why I Consider This a Capstone Project
+
+Looking back over the past year, this project brought together many of the skills I have been developing:
+
+### Cybersecurity
+
+- CompTIA Security+
+- ISC2 CC
+- Microsoft SC-900
+- Threat hunting
+- Incident analysis
+
+### Cloud Security
+
+- Azure
+- Microsoft Defender for Endpoint
+- Microsoft Sentinel
+- Log Analytics
+- KQL
+
+### AI
+
+- OpenAI integration
+- Prompt engineering
+- AI-assisted investigations
+
+### Governance & Risk
+
+- Security controls
+- Validation
+- Guardrails
+- Human approval workflows
+
+### Technical Skills
+
+- Python
+- Refactoring
+- Documentation
+- GitHub publication
+
+Rather than representing a single technology, this project serves as a practical integration of everything I have learned so far.
+
+For that reason, I view it as a personal cybersecurity capstone project.
+
+---
+
+# 🚀 What's Next?
+
+While this project marks an important milestone, there is still much to learn.
+
+Potential future enhancements include:
+
+- Threat intelligence enrichment
+- IOC reputation lookups
+- Investigation timeline reconstruction
+- Multi-agent orchestration
+
+As AI continues to evolve, I believe one of the most interesting areas will be understanding how AI can responsibly augment security operations while maintaining strong governance and oversight.
+
+---
+
+# Final Thoughts
+
+This project represents an important milestone in my cybersecurity journey. It brought together many of the concepts I have been developing over the past year, including cloud security, threat hunting, AI-assisted analysis, governance, and risk management.
+
+Most importantly, it reinforced a lesson that applies far beyond cybersecurity:
+
+> Powerful technology is only as effective as the controls and judgment surrounding its use.
+
+---
+
+## 🔗 Project Link
+
+🔗 Supporting files and a more in-depth technical report are available on [GitHub](https://github.com/dan-chui/AI-SOC-Analyst-Agent)
+
+---
+
+_Thanks for reading!_ 🙏
+
+_If you're interested in technology risk, security governance, or enterprise security operations, feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/danchui/)._
+
+_Feel free to reach out with questions or thoughts._
+
+---
