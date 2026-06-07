@@ -2,7 +2,7 @@
 
 ![Next.js](https://img.shields.io/badge/Next.js-Framework-black)
 ![Cybersecurity](https://img.shields.io/badge/Focus-Cybersecurity-blue)
-![SIEM](https://img.shields.io/badge/SIEM-Sentinel%20%7C%20Splunk-green)
+![Technology Risk](https://img.shields.io/badge/Focus-Technology%20Risk-purple)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
 ---
@@ -11,18 +11,19 @@
 
 Welcome to **Happy Bytes** 👋
 
-**Happy Bytes** is a cybersecurity and technology risk-focused blog built with **Next.js** to document hands-on security projects, threat investigations, governance concepts, and practical learning.
+**Happy Bytes** is a cybersecurity, technology risk, and security governance-focused blog built with **Next.js** to document hands-on security projects, threat investigations, governance concepts, AI-assisted security workflows, and practical learning.
 
 It serves as both a **technical journal** and **portfolio platform**, covering:
 
-- Security Operations & Blue Team workflows  
-- SIEM log analysis & threat hunting  
-- Incident detection & response workflows  
-- Security governance, IT risk, and control frameworks  
-- Threat investigations and attack reconstruction  
-- Lab-based environments and simulated real-world attack scenarios
+* Security Operations & Blue Team workflows
+* Threat hunting & incident investigations
+* SIEM analysis using Microsoft Sentinel and Defender for Endpoint
+* Technology Risk, IT Risk, and Security Governance
+* Vulnerability Management & Security Controls
+* AI-assisted security analysis and automation
+* Risk analytics and finance-to-technology risk crossover
 
-Many articles are directly linked to supporting GitHub repositories, providing full transparency into methodology, queries, and investigation workflows.  
+Many articles are linked to supporting GitHub repositories, providing transparency into methodologies, tooling, queries, and investigation workflows.
 
 ---
 
@@ -30,108 +31,211 @@ Many articles are directly linked to supporting GitHub repositories, providing f
 
 This project serves as both:
 
-- A **cybersecurity portfolio hub** showcasing hands-on investigations and analysis  
-- A **technical blog** documenting continuous learning in SOC operations, threat detection, and security governance  
+* A **cybersecurity and technology risk portfolio**
+* A **technical blog** documenting continuous learning, projects, and practical investigations
 
-It is designed to demonstrate practical, enterprise-relevant capabilities aligned with:
+The content is designed to demonstrate capabilities aligned with:
 
-- Security Operations (SOC / Blue Team)
-- SIEM & Threat Detection
-- Incident Response & Threat Hunting
-- IT Risk & Security Governance
-- Security Monitoring & Investigation Workflows
+* Technology Risk & IT Risk
+* Security Governance & GRC
+* Security Operations (SOC / Blue Team)
+* Threat Hunting & Incident Analysis
+* Microsoft Security Technologies
+* AI-Assisted Security Workflows
 
 ---
 
-## 🔍 Featured Investigations
+## 🚀 Featured Projects & Investigations
 
-- **Tor Browser Threat Hunt**  
-  - Detection and analysis of Tor usage using Microsoft Defender telemetry and KQL  
-   🔗 https://github.com/dan-chui/Threat-Hunt-Tor-Browser-Investigation
+### 🤖 AI SOC Analyst Agent
 
-- **Ransomware Intrusion Threat Hunt**  
-  - Multi-stage attack reconstruction including credential access, lateral movement, and encryption  
-   🔗 https://github.com/dan-chui/Threat-Hunt-Ransomware-Investigation
+**AI-assisted threat hunting platform integrating Azure Log Analytics, Microsoft Defender, OpenAI, and Python.**
 
-- **SIEM Log Analysis (Log4j Exploitation)**  
-  - Investigation of exploitation attempts and data exfiltration using Splunk, Wireshark, and CyberChef  
-   🔗 https://github.com/dan-chui/SIEM-Incident-Analysis-Report
+Highlights:
+
+* AI-assisted investigation workflows
+* MITRE ATT&CK mapping
+* Security guardrails and validation controls
+* Human-in-the-loop remediation workflows
+* Azure telemetry analysis
+
+🔗 https://github.com/dan-chui/AI-SOC-Analyst-Agent
+
+---
+
+### 💣 Ransomware Intrusion Threat Hunt
+
+**Multi-stage ransomware attack reconstruction using Microsoft Defender telemetry and KQL.**
+
+Highlights:
+
+* Credential access analysis
+* Persistence identification
+* Impact-stage investigation
+* MITRE ATT&CK mapping
+* Incident reconstruction
+
+🔗 https://github.com/dan-chui/Threat-Hunt-Ransomware-Investigation
+
+---
+
+### 🛰️ Tor Browser Threat Hunt
+
+**Investigation of endpoint and network activity associated with Tor Browser usage.**
+
+Highlights:
+
+* Endpoint telemetry analysis
+* Network communication review
+* Timeline reconstruction
+* Alert triage and escalation
+
+🔗 https://github.com/dan-chui/Threat-Hunt-Tor-Browser-Investigation
+
+---
+
+### 🛡️ Security Governance & Risk Projects
+
+#### Vulnerability Management Program
+
+Risk-based vulnerability remediation and reporting framework.
+
+🔗 https://github.com/dan-chui/Vulnerability-Management-Program
+
+#### ISO/IEC 27001 Risk Register
+
+ISO 27001-aligned risk assessment and control mapping framework.
+
+🔗 https://github.com/dan-chui/Risk-Register
+
 ---
 
 ## 🧠 Skills Demonstrated
 
-- SIEM Analysis (Microsoft Sentinel, Splunk)
-- KQL Query Development (Microsoft Defender XDR)
-- Threat Hunting & MITRE ATT&CK Mapping
-- Incident Investigation & Technical Reporting
-- Security Governance & Risk Analysis (ISO 27001)
-- Vulnerability Management (Tenable)
-- Log Analysis & Network Forensics (Wireshark, CyberChef)
-- Security Monitoring & Escalation Workflows
-- AI-Assisted Security Investigation Concepts
+### Security Operations
+
+* SIEM Analysis (Microsoft Sentinel, Splunk)
+* Threat Hunting
+* Incident Investigation
+* Alert Triage
+* MITRE ATT&CK Mapping
+* KQL Query Development
+
+### Technology Risk & Governance
+
+* Technology Risk
+* IT Risk
+* Security Governance
+* ISO/IEC 27001
+* Risk Assessment
+* Security Controls
+* Vulnerability Management
+
+### AI & Automation
+
+* AI-Assisted Security Analysis
+* OpenAI Integration
+* Security Guardrails
+* Investigation Automation
+* Python-Based Workflows
+
+### Analysis & Reporting
+
+* Technical Documentation
+* Incident Reporting
+* Risk Analytics
+* Data Analysis
+* Executive-Oriented Reporting
 
 ---
 
 ## 🚀 Technologies
 
-- **Next.js** – React framework for performance and scalability  
-- **Contentlayer** – Markdown-based content management  
-- **Markdown / MDX** – Technical writing and documentation  
-- **React Hook Form** – Contact and input handling  
-- **Tailwind CSS** – Clean, responsive UI with dark/light mode  
-- **HeroTofu API** – Email contact form integration  
-- **Vercel** – Deployment and hosting  
+### Security Technologies
+
+* Microsoft Sentinel
+* Defender for Endpoint
+* Azure Log Analytics
+* Microsoft Entra ID
+* Tenable
+* Splunk
+* Wireshark
+* CyberChef
+
+### Development
+
+* Next.js
+* React
+* TypeScript
+* Python
+* Git / GitHub
+
+### Blog Platform
+
+* Contentlayer
+* Markdown / MDX
+* Tailwind CSS
+* React Hook Form
+* HeroTofu API
+* Vercel
 
 ---
 
 ## 💫 Features
 
-- **Cybersecurity-Focused Content**  
-  Articles and project write-ups covering SOC workflows, SIEM analysis, threat detection, and security fundamentals  
+### Cybersecurity & Technology Risk Content
 
-- **Markdown-Driven Blog System**  
-  Contentlayer enables a fast, developer-friendly publishing workflow  
+Articles covering:
 
-- **Portfolio-Oriented Structure**  
-  Designed for detailed project posts such as SIEM investigations, incident reports, and risk analysis  
+* Threat hunting
+* Security operations
+* Incident investigations
+* Technology risk
+* Governance
+* AI-assisted security analysis
 
-- **Clean UI / UX**  
-  Minimalist design with full Light/Dark mode support  
+### Portfolio-Oriented Structure
 
-- **SEO Optimization**  
-  Structured metadata and sitemap integration for discoverability  
+Designed to showcase:
 
-- **Contact Integration**  
-  Secure contact form powered by the HeroTofu API  
+* Security investigations
+* Governance initiatives
+* Risk assessments
+* Security tooling
+* Technical write-ups
 
----
+### Modern Publishing Workflow
 
-## 🖥️ Live Demo
-
-🔗 **Live Site:** https://happy-bytes.vercel.app/
-
-### Preview
-
-![Homepage](/public/screenshot1.webp)
-![Article View](/public/screenshot2.webp)
-![Dark Mode](/public/screenshot3.webp)
-![Mobile View](/public/screenshot4.webp)
+* Markdown-based content management
+* Responsive design
+* Dark / Light mode support
+* SEO optimization
 
 ---
 
-## 🧭 Roadmap (Planned Enhancements)
+## 🖥️ Live Site
 
-- Dedicated **Projects** section for SOC & GRC portfolio artifacts  
-- Improved tagging for security domains (SIEM, IR, GRC, Cloud, Blue Team)  
-- Case-study style layouts for investigations and reports  
-- Expanded technical write-ups on certifications, labs, and threat detection methodologies
+🔗 https://happy-bytes.vercel.app/
+
+---
+
+## 🧭 Roadmap
+
+Potential future enhancements include:
+
+* Dedicated Projects section
+* Enhanced tagging and categorization
+* Technology Risk & Governance content expansion
+* AI security and agentic workflow articles
+* Security case-study layouts
+* Interactive portfolio pages
 
 ---
 
 ## 📌 Notes
 
-- Supabase is **not currently in use** and has been removed from the active feature set  
-- The blog evolves continuously alongside ongoing cybersecurity training and projects  
+* The blog continues to evolve alongside ongoing projects and professional development
+* Project repositories are published separately to provide full transparency into methodologies and implementation details
 
 ---
 
@@ -139,41 +243,47 @@ It is designed to demonstrate practical, enterprise-relevant capabilities aligne
 
 ### Installation
 
-To run the Happy Bytes repository locally:
-
 ```bash
 git clone https://github.com/dan-chui/happy-bytes
 cd happy-bytes
 npm install
 npm run dev
 ```
+
 Open your browser and visit:
-👉 http://localhost:3000
+
+```text
+http://localhost:3000
+```
 
 ---
+
 ## 🙏 Acknowledgements
-- CodeBucks
-- freeCodeCamp
+
+* CodeBucks
+* freeCodeCamp
 
 ---
+
 ## 📚 Certifications & Training
 
-- CompTIA Security+, 2025
-- ISC² Certified in Cybersecurity (CC), 2025
-- Microsoft SC-900, 2026
-- MIT Cybersecurity for Managers, 2025
-- AWS CC, 2021
+* CompTIA Security+
+* ISC² Certified in Cybersecurity (CC)
+* Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)
+* MIT Cybersecurity for Managers
+* AWS Certified Cloud Practitioner
 
 ---
+
 ## 📬 Contact
 
-If you’d like to connect or discuss cybersecurity opportunities, feel free to reach out via:
+If you'd like to connect or discuss cybersecurity, technology risk, or security governance opportunities:
 
-- Contact form on the site  
-- LinkedIn: https://www.linkedin.com/in/danchui/
+* Blog: https://happy-bytes.vercel.app/
+* LinkedIn: https://www.linkedin.com/in/danchui/
 
 ---
 
-🚀 Expanding hands-on experience across cybersecurity, technology risk, and security operations, with a focus on full-time opportunities in Tokyo.
+🚀 Exploring the intersection of cybersecurity, technology risk, governance, and AI-assisted security operations.
 
-🔐 Built with curiosity, discipline, and a blue-team mindset
+🔐 Built with curiosity, continuous learning, and a risk-aware security mindset.
